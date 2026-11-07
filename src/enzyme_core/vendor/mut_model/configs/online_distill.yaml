@@ -1,0 +1,86 @@
+# Example configuration using the repository's small three-teacher fixture.
+# Replace csv_column teachers with python_callable adapters for true live
+# SaProt/GEMME/ESM-IF inference; the callable signature is documented below.
+seed: 42
+output_dir: outputs/online_distill_example
+
+candidate:
+  path: data/test_protein-pretrain.csv
+  sequence_column: mutated_sequence
+  wildtype_sequence: MKFLILFNIL
+
+dms:
+  path: data/test_protein.csv
+  sequence_column: mutated_sequence
+  score_column: DMS_score
+  train_size: 20
+  val_size: 3
+
+teachers:
+  - name: saprot
+    type: csv_column
+    version: fixture-v1
+    path: data/test_protein-pretrain.csv
+    sequence_column: mutated_sequence
+    score_column: saprot_fitness
+  - name: prosst
+    type: csv_column
+    version: fixture-v1
+    path: data/test_protein-pretrain.csv
+    sequence_column: mutated_sequence
+    score_column: prosst_fitness
+  - name: esmif
+    type: csv_column
+    version: fixture-v1
+    path: data/test_protein-pretrain.csv
+    sequence_column: mutated_sequence
+    score_column: esmif_fitness
+
+# A real online teacher can instead be configured as:
+# - name: saprot_live
+#   type: python_callable
+#   version: SaProt-650M-v1
+#   callable: my_teacher_module:score_batch
+#   kwargs:
+#     model_path: /absolute/path/to/model
+# score_batch(sequences: list[str], context: dict, kwargs: dict) -> list[float]
+
+model:
+  embed_dim: 96
+  num_heads: 4
+  num_layers: 2
+  mlp_dim: 192
+  dropout: 0.0
+  ensemble_size: 3
+
+online:
+  cold_start_size: 2048
+  cold_start_fraction: 0.05
+  rounds: 10
+  queries_per_round: 512
+  max_query_fraction: 0.20
+  screen_size: 10000
+  exploit_fraction: 0.40
+  uncertainty_fraction: 0.30
+  diversity_fraction: 0.20
+  random_fraction: 0.10
+  ucb_beta: 1.0
+  min_round_improvement: 0.005
+  stagnant_rounds: 2
+
+training:
+  batch_size: 64
+  max_epochs: 50
+  head_warmup_epochs: 5
+  patience: 5
+  learning_rate: 0.0003
+  encoder_lr_scale: 0.1
+  weight_decay: 0.0001
+  teacher_huber_weight: 0.35
+  pairwise_weight: 0.35
+  listwise_weight: 0.20
+  consistency_weight: 0.10
+  dms_loss_weight: 1.0
+  top_dms_weight: 2.0
+  min_pair_gap: 0.05
+  listwise_temperature: 0.10
