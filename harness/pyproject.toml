@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "enzyme-harness"
+version = "1.5.0"
+description = "Native Codex CLI or DeepSeek Harness task execution with durable local process supervision"
+requires-python = ">=3.10"
+dependencies = ["enzyme-core>=0.1.22,<0.2", "jsonschema>=4.18,<5", "psutil>=5.9,<8", "PyYAML>=6,<7"]
+readme = "README.md"
+license = {file = "LICENSE"}
+
+[project.scripts]
+enzyme-harness = "enzyme_harness.launcher:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+enzyme_harness = ["acceptance/*.py"]
