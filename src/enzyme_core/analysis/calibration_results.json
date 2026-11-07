@@ -1,0 +1,1 @@
+{"schema_version":"enzyme-core/analysis-example/v1","input":{"labels":[1,0,1,0],"scores":[0.9,0.8,0.7,0.1],"top_k":2},"expected":{"auroc":0.75,"top_k_precision":0.5,"top_k_recall":0.5}}
