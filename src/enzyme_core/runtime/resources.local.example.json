@@ -1,0 +1,7 @@
+{
+  "schema_version": "enzyme-core/resources/v1",
+  "description": "Optional local overrides. Copy to resources.local.json and configure paths on your machine.",
+  "default_env": "${ENZYME_CONDA_ENV}",
+  "model_weights": {"models": {}},
+  "runtime_binaries": {}
+}

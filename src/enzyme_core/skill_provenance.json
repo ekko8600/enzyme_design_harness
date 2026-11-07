@@ -1,0 +1,258 @@
+{
+  "schema_version": "enzyme-design-platform/skill-provenance/v1",
+  "project_license": "Apache-2.0",
+  "copyright_notice": "Copyright 2026 Enzyme Design Platform contributors",
+  "policy": {
+    "frontmatter_license_fields_are_authoritative": false,
+    "registry_is_authoritative": true,
+    "model_weights_and_remote_data_are_not_redistributed": true,
+    "release_requires_complete_skill_coverage": true
+  },
+  "runtime": {
+    "environment": {
+      "config": "runtime/resources.json",
+      "default_env": "agent",
+      "skills": "runtime/resources.json#/skills"
+    },
+    "weights": {
+      "config": "runtime/resources.json",
+      "models": "runtime/resources.json#/model_weights/models"
+    },
+    "data": {
+      "terms": "external_terms",
+      "remote_data_is_not_redistributed": true
+    },
+    "note": "Runtime paths, model checkpoints, and data terms are resolved from this pinned project manifest; unresolved local paths remain explicit references."
+  },
+  "groups": [
+    {
+      "id": "project-original",
+      "origin": "project-original-or-clean-room-reimplementation",
+      "license_expression": "Apache-2.0",
+      "copyright": [
+        "Copyright 2026 Enzyme Design Platform contributors"
+      ],
+      "verification": "repository-specific implementation and no matching upstream Skill content in the audited source repositories",
+      "verified_at": "2026-08-11",
+      "verification_tool": "manual-content-audit-v1",
+      "skills": [
+        "binding-affinity",
+        "enzyme-qm-ts",
+        "esmif",
+        "gemme",
+        "html-report-renderer",
+        "literature-protein-collector",
+        "mut-model-supervised-finetuning",
+        "openmm-md",
+        "pyrosetta-docking",
+        "pyrosetta-ligand",
+        "pyrosetta-loops",
+        "pyrosetta-pack-design",
+        "pyrosetta-parallel",
+        "pyrosetta-pose",
+        "pyrosetta-relax-refine",
+        "pyrosetta-scoring",
+        "pyrosetta-setup",
+        "pyrosetta-specialized",
+        "rational-binding-selectivity",
+        "rational-chemical-mechanism",
+        "rational-design-advanced",
+        "rational-expression-evolution",
+        "rational-stability-environment",
+        "rational-transport-dynamics",
+        "saprot",
+        "venusfsfp-supervised-finetuning"
+      ]
+    },
+    {
+      "id": "synthetic-sciences-openscience",
+      "origin": "modified-third-party",
+      "license_expression": "Apache-2.0",
+      "copyright": [
+        "Copyright 2026 Synthetic Sciences"
+      ],
+      "source": {
+        "repository": "https://github.com/synthetic-sciences/openscience",
+        "revision": "79c26bc770f2c40498249fd57061450f359121ae",
+        "path_prefix": "backend/cli/skills"
+      },
+      "verification": "content match against the pinned upstream revision; local governance and progressive-disclosure changes are modifications",
+      "verified_at": "2026-08-11",
+      "verification_tool": "manual-content-audit-v1",
+      "notice": "third_party/OPENSCIENCE_NOTICE.txt",
+      "skills": [
+        "brenda-database",
+        "dna-visualization",
+        "ena-database",
+        "gene-database",
+        "glycobiology",
+        "hmdb-database",
+        "hypothesis-generation",
+        "infographics",
+        "kegg-database",
+        "literature-review",
+        "markitdown",
+        "matplotlib",
+        "molecule-visualization",
+        "peer-review",
+        "plotly",
+        "protein-diagram",
+        "rdkit",
+        "scholar-evaluation",
+        "scientific-brainstorming",
+        "scientific-critical-thinking",
+        "scientific-schematics",
+        "scientific-visualization",
+        "seaborn"
+      ]
+    },
+    {
+      "id": "google-deepmind-science-skills",
+      "origin": "modified-third-party",
+      "license_expression": "Apache-2.0 AND CC-BY-4.0",
+      "copyright": [
+        "Copyright 2026 Google LLC"
+      ],
+      "source": {
+        "repository": "https://github.com/google-deepmind/science-skills",
+        "revision": "d68809a6af09a2f18d8a30958450621f5cb53e1e",
+        "path_prefix": "skills"
+      },
+      "revision_overrides": {
+        "uniprot-database": "f18ab607965db9b2141ff0629783949a14710458"
+      },
+      "verification": "content match against pinned upstream revisions; local wrappers and governance text are modifications",
+      "verified_at": "2026-08-11",
+      "verification_tool": "manual-content-audit-v1",
+      "terms_notice": "third_party/GOOGLE_SKILL_TERMS.md",
+      "cc_by_4_uri": "https://creativecommons.org/licenses/by/4.0/legalcode",
+      "skills": [
+        "alphafold-database-fetch-and-analyze",
+        "chembl-database",
+        "clinical-trials-database",
+        "clinvar-database",
+        "dbsnp-database",
+        "embl-ebi-ols",
+        "encode-ccres-database",
+        "ensembl-database",
+        "foldseek-structural-search",
+        "gnomad-database",
+        "gtex-database",
+        "human-protein-atlas-database",
+        "interpro-database",
+        "jaspar-database",
+        "literature-search-arxiv",
+        "literature-search-biorxiv",
+        "literature-search-europepmc",
+        "literature-search-openalex",
+        "ncbi-sequence-fetch",
+        "openfda-database",
+        "opentargets-database",
+        "pdb-database",
+        "protein-sequence-msa",
+        "protein-sequence-similarity-search",
+        "pubchem-database",
+        "pubmed-database",
+        "pymol",
+        "quickgo-database",
+        "reactome-database",
+        "string-database",
+        "ucsc-conservation-and-tfbs",
+        "unibind-database",
+        "uniprot-database",
+        "uv",
+        "workflow-skill-creator"
+      ]
+    },
+    {
+      "id": "adaptyv-protein-design-skills",
+      "origin": "modified-third-party",
+      "license_expression": "MIT",
+      "copyright": [
+        "Copyright (c) 2026 Adaptyv"
+      ],
+      "source": {
+        "repository": "https://github.com/adaptyvbio/protein-design-skills",
+        "path_prefix": "skills"
+      },
+      "revisions": {
+        "alphafold": "107eab0222a9bcb825f23a28a5d578d863a0d0cf",
+        "boltz": "da04082330201058f0a72f72cc39cec6ddad46bd",
+        "foldseek": "b231232025e3db41e9c637abc1e8082e915f6cb1",
+        "ligandmpnn": "107eab0222a9bcb825f23a28a5d578d863a0d0cf",
+        "proteinmpnn": "107eab0222a9bcb825f23a28a5d578d863a0d0cf",
+        "solublempnn": "b2b624a9d9554498e6d457b32ffa68b81ca18842"
+      },
+      "verification": "content match against pinned upstream revisions; local execution wrappers and scope restrictions are modifications",
+      "verified_at": "2026-08-11",
+      "verification_tool": "manual-content-audit-v1",
+      "license_file": "third_party/licenses/Adaptyv-MIT.txt",
+      "skills": [
+        "alphafold",
+        "boltz",
+        "foldseek",
+        "ligandmpnn",
+        "proteinmpnn",
+        "solublempnn"
+      ]
+    },
+    {
+      "id": "adaptyv-extensively-rewritten",
+      "origin": "extensively-modified-third-party",
+      "license_expression": "MIT AND Apache-2.0",
+      "copyright": [
+        "Copyright (c) 2026 Adaptyv",
+        "Copyright 2026 Enzyme Design Platform contributors"
+      ],
+      "source": {
+        "repository": "https://github.com/adaptyvbio/protein-design-skills",
+        "path_prefix": "skills"
+      },
+      "revisions": {
+        "esm": "107eab0222a9bcb825f23a28a5d578d863a0d0cf",
+        "pdb": "da04082330201058f0a72f72cc39cec6ddad46bd",
+        "uniprot": "0c38a023a4b129d86468efe46bc83bb2cdea701b"
+      },
+      "verification": "name, metadata, and retained workflow ancestry; current contents were extensively rewritten",
+      "verified_at": "2026-08-11",
+      "verification_tool": "manual-content-audit-v1",
+      "license_file": "third_party/licenses/Adaptyv-MIT.txt",
+      "skills": [
+        "esm",
+        "pdb",
+        "uniprot"
+      ]
+    },
+    {
+      "name": "Local engineering validation fixture",
+      "skills": [
+        "repair-validation",
+        "public-data-inputs"
+      ],
+      "license": "MIT"
+    }
+  ],
+  "external_terms": {
+    "hmdb-database": {
+      "scope": "remote data",
+      "terms": "CC-BY-NC-4.0; commercial use or redistribution requires permission",
+      "url": "https://hmdb.ca/about"
+    },
+    "kegg-database": {
+      "scope": "remote database and API",
+      "terms": "non-academic use requires a commercial license",
+      "url": "https://www.kegg.jp/kegg/legal.html"
+    },
+    "pyrosetta-workflow": {
+      "scope": "optional external software dependency",
+      "terms": "PyRosetta is not bundled; users must obtain and comply with the Rosetta/PyRosetta license",
+      "url": "https://www.pyrosetta.org/downloads"
+    },
+    "model-weights": {
+      "scope": "all external model checkpoints",
+      "terms": "not distributed by this repository; each checkpoint remains subject to its publisher's model license",
+      "url": null
+    }
+  },
+  "migration_note": "Attribution inherited from the source registry; execution and scientific verification are not inherited."
+}

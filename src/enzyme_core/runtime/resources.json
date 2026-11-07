@@ -1,0 +1,510 @@
+{
+  "schema_version": "enzyme-core/resources/v1",
+  "description": "Runtime environment and model/binary resource declarations for canonical enzyme_core Skills.",
+  "default_env": "agent",
+  "groups": {
+    "agent": "agent",
+    "alphafold": "agent",
+    "boltz": "agent",
+    "esm": "agent",
+    "esmif": "agent",
+    "gemme": "agent",
+    "mpnn": "agent",
+    "openmm": "agent",
+    "pyrosetta": "agent",
+    "saprot": "agent"
+  },
+  "skills": {
+    "alphafold": "agent",
+    "alphafold-database-fetch-and-analyze": "agent",
+    "binding-affinity": "agent",
+    "boltz": "agent",
+    "enzyme-qm-ts": "agent",
+    "chembl-database": "agent",
+    "clinical-trials-database": "agent",
+    "clinvar-database": "agent",
+    "dbsnp-database": "agent",
+    "embl-ebi-ols": "agent",
+    "encode-ccres-database": "agent",
+    "ensembl-database": "agent",
+    "esm": "agent",
+    "esmif": "agent",
+    "foldseek": "agent",
+    "foldseek-structural-search": "agent",
+    "gemme": "agent",
+    "gnomad-database": "agent",
+    "gtex-database": "agent",
+    "html-report-renderer": "agent",
+    "human-protein-atlas-database": "agent",
+    "interpro-database": "agent",
+    "jaspar-database": "agent",
+    "ligandmpnn": "agent",
+    "literature-search-arxiv": "agent",
+    "literature-search-biorxiv": "agent",
+    "literature-search-europepmc": "agent",
+    "literature-search-openalex": "agent",
+    "literature-protein-collector": "agent",
+    "mut-model-supervised-finetuning": "agent",
+    "ncbi-sequence-fetch": "agent",
+    "openfda-database": "agent",
+    "openmm-md": "agent",
+    "opentargets-database": "agent",
+    "pdb": "agent",
+    "pdb-database": "agent",
+    "protein-sequence-msa": "agent",
+    "protein-sequence-similarity-search": "agent",
+    "proteinmpnn": "agent",
+    "pubchem-database": "agent",
+    "pubmed-database": "agent",
+    "pymol": "agent",
+    "pyrosetta-docking": "agent",
+    "pyrosetta-ligand": "agent",
+    "pyrosetta-loops": "agent",
+    "pyrosetta-pack-design": "agent",
+    "pyrosetta-parallel": "agent",
+    "pyrosetta-pose": "agent",
+    "pyrosetta-relax-refine": "agent",
+    "pyrosetta-scoring": "agent",
+    "pyrosetta-setup": "agent",
+    "pyrosetta-specialized": "agent",
+    "quickgo-database": "agent",
+    "rational-design-advanced": "agent",
+    "rational-chemical-mechanism": "agent",
+    "rational-binding-selectivity": "agent",
+    "rational-transport-dynamics": "agent",
+    "rational-stability-environment": "agent",
+    "rational-expression-evolution": "agent",
+    "reactome-database": "agent",
+    "saprot": "agent",
+    "solublempnn": "agent",
+    "string-database": "agent",
+    "ucsc-conservation-and-tfbs": "agent",
+    "unibind-database": "agent",
+    "uniprot": "agent",
+    "uniprot-database": "agent",
+    "uv": "agent",
+    "venusfsfp-supervised-finetuning": "agent",
+    "workflow-skill-creator": "agent",
+    "brenda-database": "agent",
+    "ena-database": "agent",
+    "gene-database": "agent",
+    "hmdb-database": "agent",
+    "kegg-database": "agent",
+    "glycobiology": "agent",
+    "hypothesis-generation": "agent",
+    "literature-review": "agent",
+    "markitdown": "agent",
+    "molecule-visualization": "agent",
+    "peer-review": "agent",
+    "rdkit": "agent",
+    "scholar-evaluation": "agent",
+    "scientific-brainstorming": "agent",
+    "scientific-critical-thinking": "agent",
+    "dna-visualization": "agent",
+    "infographics": "agent",
+    "matplotlib": "agent",
+    "plotly": "agent",
+    "protein-diagram": "agent",
+    "scientific-schematics": "agent",
+    "scientific-visualization": "agent",
+    "seaborn": "agent"
+  },
+  "model_weights": {
+    "huggingface_cache": {
+      "path": "~/.cache/huggingface/hub",
+      "description": "Default local Hugging Face cache. Some model weights resolve from here; others use local directories (see models section for per-model overrides)."
+    },
+    "models": {
+      "esm": {
+        "path": "${ENZYME_TORCH_CACHE}/hub/checkpoints",
+        "path_type": "local_directory",
+        "required_files": [
+          {
+            "path": "esm2_t33_650M_UR50D.pt",
+            "min_bytes": 1000000000
+          },
+          {
+            "path": "esm2_t33_650M_UR50D-contact-regression.pt",
+            "min_bytes": 1000
+          }
+        ],
+        "env_vars": {
+          "TORCH_HOME": "${ENZYME_TORCH_CACHE}"
+        },
+        "skills": [
+          "esm"
+        ]
+      },
+      "esmif": {
+        "path": "${ENZYME_TORCH_CACHE}/hub/checkpoints",
+        "path_type": "local_directory",
+        "required_files": [
+          {
+            "path": "esm_if1_gvp4_t16_142M_UR50.pt",
+            "min_bytes": 1000000000
+          }
+        ],
+        "env_vars": {
+          "TORCH_HOME": "${ENZYME_TORCH_CACHE}"
+        },
+        "skills": [
+          "esmif"
+        ]
+      },
+      "boltz": {
+        "path": "${BOLTZ_CHECKPOINT}",
+        "path_type": "local_directory",
+        "required_files": [
+          {
+            "path": "boltz2_conf.ckpt",
+            "min_bytes": 2000000000
+          },
+          {
+            "path": "boltz2_aff.ckpt",
+            "min_bytes": 1800000000
+          }
+        ],
+        "env_vars": {
+          "BOLTZ_CHECKPOINT": "${BOLTZ_CHECKPOINT}"
+        },
+        "skills": [
+          "boltz"
+        ]
+      },
+      "gemme": {
+        "path": "${ENZYME_DATA_ROOT}/gemme",
+        "path_type": "local_directory",
+        "required_files": [
+          {
+            "path": "compute_fitness.py",
+            "min_bytes": 1000
+          }
+        ],
+        "runtime": "docker",
+        "docker_image": "elodielaine/gemme:gemme",
+        "docker_image_tar": "${GEMME_DOCKER_IMAGE_TAR}",
+        "env_vars": {
+          "GEMME_HOME": "${ENZYME_DATA_ROOT}/gemme"
+        },
+        "skills": [
+          "gemme"
+        ],
+        "input_requirements": {
+          "msa_format": "A2M-like FASTA with query sequence first",
+          "mutation_format": "1-indexed substitutions such as K5A or K5A:R10H"
+        }
+      },
+      "mut_model": {
+        "path": "${ENZYME_CORE_VENDOR}/mut_model",
+        "path_type": "local_directory",
+        "required_files": [
+          {
+            "path": "model_run/finetune_online_distill.py",
+            "min_bytes": 1000
+          },
+          {
+            "path": "model_run/models/model_direct.py",
+            "min_bytes": 1000
+          }
+        ],
+        "env_vars": {
+          "MUT_MODEL_HOME": "${ENZYME_CORE_VENDOR}/mut_model"
+        },
+        "skills": [
+          "mut-model-supervised-finetuning"
+        ],
+        "execution_requirements": {
+          "training_accelerator": "gpu",
+          "inference_accelerator": "gpu",
+          "cpu_fallback_allowed": false
+        }
+      },
+      "venusfsfp": {
+        "path": "${ENZYME_DATA_ROOT}/VenusFSFP",
+        "path_type": "local_directory",
+        "required_files": [
+          {
+            "path": "main.py",
+            "min_bytes": 1000
+          },
+          {
+            "path": "fsfp/config.json",
+            "min_bytes": 100
+          },
+          {
+            "path": "fsfp/pipeline.py",
+            "min_bytes": 1000
+          }
+        ],
+        "env_vars": {
+          "VENUSFSFP_HOME": "${ENZYME_DATA_ROOT}/VenusFSFP"
+        },
+        "skills": [
+          "venusfsfp-supervised-finetuning"
+        ],
+        "execution_requirements": {
+          "training_accelerator": "gpu",
+          "inference_accelerator": "gpu",
+          "cpu_fallback_allowed": false
+        }
+      },
+      "venusfsfp_esm2_base": {
+        "path": "${ENZYME_HF_CACHE}/hub/models--facebook--esm2_t33_650M_UR50D/snapshots/local",
+        "path_type": "local_directory",
+        "required_files": [
+          {
+            "path": "config.json",
+            "min_bytes": 100
+          },
+          {
+            "path": "vocab.txt",
+            "min_bytes": 50
+          },
+          {
+            "path": "model.safetensors",
+            "min_bytes": 2000000000
+          }
+        ],
+        "env_vars": {
+          "VENUSFSFP_ESM2_BASE": "${ENZYME_HF_CACHE}/hub/models--facebook--esm2_t33_650M_UR50D/snapshots/local"
+        },
+        "skills": [
+          "venusfsfp-supervised-finetuning"
+        ]
+      },
+      "saprot": {
+        "path": "${ENZYME_DATA_ROOT}/saprot_checkpoint/checkpoint/SaProt_650M_AF2",
+        "path_type": "local_directory",
+        "required_files": [
+          {
+            "path": "config.json",
+            "min_bytes": 100
+          },
+          {
+            "path": "vocab.txt",
+            "min_bytes": 1000
+          },
+          {
+            "path": "pytorch_model.bin",
+            "min_bytes": 2000000000
+          }
+        ],
+        "env_vars": {
+          "SAPROT_CHECKPOINT": "${ENZYME_DATA_ROOT}/saprot_checkpoint/checkpoint/SaProt_650M_AF2",
+          "FOLDSEEK_BIN": "${ENZYME_DATA_ROOT}/saprot_checkpoint/bin/foldseek"
+        },
+        "skills": [
+          "saprot"
+        ],
+        "foldseek": {
+          "path": "${ENZYME_DATA_ROOT}/saprot_checkpoint/bin/foldseek",
+          "description": "Foldseek binary required by Saprot for structural search and alignment"
+        }
+      },
+      "ligandmpnn": {
+        "path": "${ENZYME_DATA_ROOT}/LigandMPNN/model_params",
+        "path_type": "local_directory",
+        "required_files": [
+          {
+            "path": "ligandmpnn_v_32_005_25.pt",
+            "min_bytes": 10000000
+          }
+        ],
+        "env_vars": {
+          "LIGANDMPNN_MODEL_PARAMS": "${ENZYME_DATA_ROOT}/LigandMPNN/model_params",
+          "LIGANDMPNN_DIR": "${ENZYME_CORE_VENDOR}/ligandmpnn"
+        },
+        "skills": [
+          "ligandmpnn"
+        ]
+      },
+      "proteinmpnn": {
+        "path": "${ENZYME_DATA_ROOT}/LigandMPNN/model_params",
+        "path_type": "local_directory",
+        "required_files": [
+          {
+            "path": "proteinmpnn_v_48_020.pt",
+            "min_bytes": 6000000
+          }
+        ],
+        "env_vars": {
+          "PROTEINMPNN_MODEL_PARAMS": "${ENZYME_DATA_ROOT}/LigandMPNN/model_params",
+          "LIGANDMPNN_DIR": "${ENZYME_CORE_VENDOR}/ligandmpnn"
+        },
+        "skills": [
+          "proteinmpnn"
+        ]
+      },
+      "solublempnn": {
+        "path": "${ENZYME_DATA_ROOT}/LigandMPNN/model_params",
+        "path_type": "local_directory",
+        "required_files": [
+          {
+            "path": "solublempnn_v_48_020.pt",
+            "min_bytes": 6000000,
+            "sha256": "7af52d090172c230c7f0e9d21e02203f6b3a38b16db58d3c7a3960e0a9a6e31a"
+          }
+        ],
+        "env_vars": {
+          "PROTEINMPNN_MODEL_PARAMS": "${ENZYME_DATA_ROOT}/LigandMPNN/model_params",
+          "LIGANDMPNN_DIR": "${ENZYME_CORE_VENDOR}/ligandmpnn"
+        },
+        "skills": [
+          "solublempnn"
+        ]
+      }
+    }
+  },
+  "runtime_binaries": {
+    "foldseek": {
+      "path": "${ENZYME_DATA_ROOT}/saprot_checkpoint/bin/foldseek",
+      "path_type": "local_executable",
+      "min_bytes": 1000000,
+      "required": false,
+      "required_for_skills": [
+        "saprot",
+        "foldseek"
+      ],
+      "env_var": "FOLDSEEK_BIN",
+      "skills": [
+        "saprot",
+        "foldseek",
+        "foldseek-structural-search"
+      ],
+      "description": "Foldseek executable required by SaProt and Foldseek structural workflows."
+    },
+    "plip": {
+      "path": "${ENZYME_DATA_ROOT}/plip",
+      "path_type": "local_directory",
+      "required_files": [
+        {
+          "path": "plip/plipcmd.py",
+          "min_bytes": 10000
+        },
+        {
+          "path": "openbabel/_openbabel.so",
+          "min_bytes": 1000000
+        }
+      ],
+      "required": false,
+      "env_var": "PLIP_ROOT",
+      "skills": [
+        "rational-design-advanced",
+        "rational-binding-selectivity"
+      ],
+      "description": "Isolated PLIP package root used without modifying the agent environment."
+    },
+    "caver": {
+      "path": "${CAVER_JAR}",
+      "path_type": "local_file",
+      "min_bytes": 500000,
+      "required": false,
+      "env_var": "CAVER_JAR",
+      "skills": [
+        "rational-design-advanced",
+        "rational-transport-dynamics"
+      ],
+      "description": "Isolated CAVER command-line JAR for geometric tunnel analysis."
+    },
+    "caver_java": {
+      "path": "${CAVER_JAVA}",
+      "path_type": "local_executable",
+      "min_bytes": 10000,
+      "required": false,
+      "env_var": "CAVER_JAVA",
+      "skills": [
+        "rational-design-advanced",
+        "rational-transport-dynamics"
+      ],
+      "description": "Isolated Java runtime used only for CAVER."
+    },
+    "docker": {
+      "path": "docker",
+      "path_type": "system_executable",
+      "required": true,
+      "skills": [
+        "gemme"
+      ],
+      "description": "Docker executable required for GEMME runtime when using the configured image."
+    },
+    "gemme_docker_image_tar": {
+      "path": "${GEMME_DOCKER_IMAGE_TAR}",
+      "path_type": "local_file",
+      "min_bytes": 500000000,
+      "required": false,
+      "env_var": "GEMME_DOCKER_IMAGE_TAR",
+      "skills": [
+        "gemme"
+      ],
+      "provisioning": "image_may_already_be_loaded",
+      "description": "Optional GEMME Docker image archive used only to provision the image on a new host. It is not required at run time when elodielaine/gemme:gemme is already loaded, so it is not a hard readiness requirement."
+    },
+    "cp2k_gpu": {
+      "path": "${ENZYME_DATA_ROOT}/cp2k-main/gpu/install/bin/cp2k.psmp",
+      "path_type": "local_executable",
+      "min_bytes": 1000000,
+      "required": false,
+      "env_var": "CP2K_GPU_BIN",
+      "override_env_var": "CP2K_GPU_ROOT",
+      "override_semantics": "install directory containing bin/cp2k.psmp",
+      "variant": "gpu",
+      "role": "preferred",
+      "fallback": "cp2k_cpu",
+      "availability_probe": {
+        "executable": "nvidia-smi",
+        "requires_visible_device": true,
+        "unavailable_reasons": [
+          "gpu_build_missing",
+          "nvidia_smi_missing",
+          "no_visible_device"
+        ]
+      },
+      "container": null,
+      "skills": [
+        "enzyme-qm-ts"
+      ],
+      "description": "Local CUDA CP2K 2026.2 build and the preferred variant for enzyme-qm-ts. Not from conda and not from a container image: the launcher sources the build's own toolchain setup. Falls back to cp2k_cpu when CUDA acceleration is unavailable."
+    },
+    "cp2k_cpu": {
+      "path": "${ENZYME_DATA_ROOT}/cp2k-main/cpu/install/bin/cp2k.psmp",
+      "path_type": "local_executable",
+      "min_bytes": 1000000,
+      "required": false,
+      "env_var": "CP2K_CPU_BIN",
+      "override_env_var": "CP2K_CPU_ROOT",
+      "override_semantics": "install directory containing bin/cp2k.psmp",
+      "variant": "cpu",
+      "role": "fallback",
+      "container": null,
+      "skills": [
+        "enzyme-qm-ts"
+      ],
+      "description": "Local CPU CP2K 2026.2 build. Selected when GPU acceleration is unavailable, or explicitly by the operator. Not from conda and not from a container image."
+    },
+    "pymol": {
+      "path": "pymol",
+      "path_type": "system_executable",
+      "min_bytes": 100,
+      "required": false,
+      "skills": [
+        "pymol"
+      ],
+      "description": "Optional PyMOL executable for visual inspection and structure annotation."
+    },
+    "colabfold_batch": {
+      "path": "${ENZYME_DATA_ROOT}/enzyme_core/benchmark/static_structure_v2/environments/colabfold_reuse/bin/colabfold_batch",
+      "path_type": "local_executable",
+      "required": false,
+      "env_var": "COLABFOLD_BATCH_BIN",
+      "skills": [
+        "alphafold"
+      ],
+      "description": "Verified offline ColabFold runtime entrypoint; its sibling Python runs the frozen local driver."
+    }
+  },
+  "notes": [
+    "Environment names are declarations; execution uses the interpreter explicitly supplied by the caller.",
+    "External models and binaries are not bundled. Configure paths and optional overrides for this workstation.",
+    "CP2K is a local build, distinct from the scientific Python environment."
+  ]
+}
