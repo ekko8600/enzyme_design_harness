@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "enzyme-core"
+version = "0.1.22"
+description = "Portable atomic enzyme Skills for independently built research drivers"
+requires-python = ">=3.10"
+dependencies = ["PyYAML>=6,<7"]
+readme = "README.md"
+license = {file = "LICENSE"}
+
+[project.optional-dependencies]
+retrieval = ["python-dotenv>=1", "requests>=2", "biopython>=1.80", "zeep>=4"]
+analysis = ["numpy>=1.24", "pandas>=2", "matplotlib>=3.8", "scipy>=1.10"]
+chemistry = ["rdkit>=2023.9"]
+documents = ["markitdown", "Pillow", "pypdf"]
+
+[project.scripts]
+enzyme-core = "enzyme_core.cli:main"
+enzyme-core-discovery = "enzyme_core.bridge_cli:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["enzyme_core", "enzyme_core.skills", "enzyme_core.support", "enzyme_core.analysis", "enzyme_core.runtime", "enzyme_core.contracts"]
+namespaces = false
+
+[tool.setuptools.package-data]
+enzyme_core = ["skill_catalog.json", "skill_provenance.json", "THIRD_PARTY_NOTICES.md", "runtime/*.json", "analysis/*.json", "analysis/*.md", "skills/**/*", "third_party/**/*", "vendor/**/*"]
+
+[tool.setuptools.exclude-package-data]
+"*" = ["**/__pycache__/*", "**/*.pyc", "**/*.pyo"]

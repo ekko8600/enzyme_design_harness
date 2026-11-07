@@ -1,0 +1,30 @@
+Enzyme Design Platform
+Copyright 2026 Enzyme Design Platform contributors
+
+Licensed under the Apache License, Version 2.0. The license applies to original
+project content and modifications only. Third-party components retain their
+respective licenses and copyright notices.
+
+This distribution includes modified Skill material from OpenScience by
+Synthetic Sciences (Copyright 2026 Synthetic Sciences), licensed under
+Apache-2.0. Its upstream NOTICE is retained at
+enzyme_core/third_party/OPENSCIENCE_NOTICE.txt.
+
+This distribution includes modified Science Skills material from Google LLC
+(Copyright 2026 Google LLC). Software is licensed under Apache-2.0 and other
+materials under CC-BY-4.0. This is not an official Google product. Applicable
+data-source terms are retained at enzyme_core/third_party/GOOGLE_SKILL_TERMS.md.
+
+This distribution includes modified Protein Design Skills material from
+Adaptyv (Copyright (c) 2026 Adaptyv), licensed under MIT. The full license is
+retained at enzyme_core/third_party/licenses/Adaptyv-MIT.txt.
+
+The authoritative per-Skill mapping is skill_provenance.json. External tools,
+model weights, databases, APIs, and retrieved publications are not relicensed
+by this repository and remain subject to their own terms.
+
+The distribution bundles MIT-licensed source for LigandMPNN
+(Copyright (c) 2024 Justas Dauparas) and mut_model (Copyright (c) 2025 ekko)
+under enzyme_core/vendor/. LigandMPNN's openfold/ subtree retains Apache-2.0
+attribution to AlQuraishi Laboratory and DeepMind. Model weights, datasets,
+Docker images, and external tools are not bundled.
