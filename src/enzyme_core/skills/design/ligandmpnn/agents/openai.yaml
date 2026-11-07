@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ligandmpnn"
+  short_description: "Help with Ligandmpnn tasks"
+  default_prompt: "Use $ligandmpnn to help with this task using its documented guidance and governed capabilities."

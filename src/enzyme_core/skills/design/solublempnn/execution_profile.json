@@ -1,0 +1,26 @@
+{
+  "schema_version": "enzyme-core/skill-execution-profile/v1",
+  "skill": "solublempnn",
+  "default_operation": "local_ligandmpnn",
+  "operations": {
+    "local_ligandmpnn": {
+      "kind": "local_python",
+      "path": "scripts/local_ligandmpnn.py",
+      "requires_modules": [
+        "prody"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    }
+  },
+  "resource_class": "high",
+  "supports_retry": false,
+  "effects": {
+    "task_directory_write": true,
+    "external_read": false,
+    "external_side_effect": false
+  },
+  "evidence_boundary": "SolubleMPNN output is a computational sequence proposal and does not establish experimental solubility, expression, folding, or activity.",
+  "migration_validation": "STRUCTURAL_ONLY",
+  "completion_rule": "Execution status, requested artifact validation, and scientific interpretation are distinct."
+}

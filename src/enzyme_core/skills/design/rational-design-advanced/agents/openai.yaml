@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rational Design Advanced"
+  short_description: "Help with Rational Design Advanced tasks"
+  default_prompt: "Use $rational-design-advanced to help with this task using its documented guidance and governed capabilities."

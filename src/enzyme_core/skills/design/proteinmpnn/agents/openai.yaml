@@ -1,0 +1,4 @@
+interface:
+  display_name: "Proteinmpnn"
+  short_description: "Help with Proteinmpnn tasks"
+  default_prompt: "Use $proteinmpnn to help with this task using its documented guidance and governed capabilities."

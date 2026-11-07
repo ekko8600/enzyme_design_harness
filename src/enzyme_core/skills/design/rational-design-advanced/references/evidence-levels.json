@@ -1,0 +1,54 @@
+{
+  "schema_version": "rational-design-advanced-evidence-levels/v1",
+  "note": "Single source of truth for evidence levels in rational-design-advanced annotations/v2. Aligns with rules/05-evidence-provenance.md: direct observation and author interpretation map to kinds source_evidence/expert_opinion; computational inference maps to dynamics/electronic_structure/evolutionary/zero_shot. Status-level consistency is enforced by validate-annotations for schema v2.",
+  "levels": {
+    "experimental": {
+      "label": "Experimental observation",
+      "kinds": ["source_evidence"],
+      "weight": 5,
+      "note": "Direct assay, kinetics, or structure determination (e.g., activity table, Tm, crystal structure)."
+    },
+    "structural_biochemistry": {
+      "label": "Structural biochemistry",
+      "kinds": ["source_evidence"],
+      "weight": 4,
+      "note": "Catalytic geometry, PLIP contacts, pocket analysis derived from a validated structure."
+    },
+    "dynamics": {
+      "label": "Molecular dynamics",
+      "kinds": ["computational_inference"],
+      "weight": 3,
+      "note": "OpenMM MD ensembles: RMSF, contact occupancy, pocket dynamics."
+    },
+    "electronic_structure": {
+      "label": "Electronic structure (QM/MM)",
+      "kinds": ["computational_inference"],
+      "weight": 3,
+      "note": "CP2K QM/MM transition states and barriers."
+    },
+    "evolutionary": {
+      "label": "Evolutionary / MSA",
+      "kinds": ["computational_inference"],
+      "weight": 2,
+      "note": "Conservation, GEMME, homolog support."
+    },
+    "zero_shot": {
+      "label": "Zero-shot model (PLM)",
+      "kinds": ["computational_inference"],
+      "weight": 1,
+      "note": "ESM2/SaProt masked-marginal scores."
+    },
+    "expert_opinion": {
+      "label": "Expert / literature interpretation",
+      "kinds": ["source_evidence", "hypothesis"],
+      "weight": 1,
+      "note": "Reported mutations or domain judgement; kind is source_evidence for a direct report, hypothesis for interpretation."
+    }
+  },
+  "status_rule": {
+    "support": "at least one direct level (experimental/structural_biochemistry), or at least two distinct computational levels",
+    "conditional": "at least one evidence item with a level",
+    "insufficient_evidence": "no leveled evidence required (absence of support)",
+    "conflict": "requires non-empty counterevidence_or_risk on at least one decision card"
+  }
+}

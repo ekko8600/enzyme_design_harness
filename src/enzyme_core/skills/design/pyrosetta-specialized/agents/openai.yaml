@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pyrosetta Specialized"
+  short_description: "Help with Pyrosetta Specialized tasks"
+  default_prompt: "Use $pyrosetta-specialized to help with this task using its documented guidance and governed capabilities."

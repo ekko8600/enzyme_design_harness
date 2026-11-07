@@ -1,0 +1,32 @@
+schema_version: enzyme-agent/scientific-contract/v2
+skill_id: pyrosetta-pack-design
+version: 1.0.0
+category: design
+capability_ids:
+- design.molecular_design
+execution_profile_path: execution_profile.json
+preconditions: []
+inputs: []
+outputs:
+- role: scientific_result
+  media_types:
+  - application/vnd.enzyme-agent.scientific-result+json
+state_effect: none
+evidence:
+  status: reviewed
+resources: []
+side_effects: []
+dependencies:
+- pyrosetta-setup
+scientific_result:
+  schema_version: enzyme-agent/scientific-result/v1
+  adapter: physicochemical.pyrosetta-pack-design
+  numeric: true
+  required_observables:
+  - energy
+  - packing
+  - cavity
+  - geometry
+  required_qc:
+  - controls_present
+  claim_ceiling: comparative packing proxy; not free energy or activity

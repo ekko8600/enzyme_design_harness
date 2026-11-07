@@ -1,0 +1,4 @@
+interface:
+  display_name: "Solublempnn"
+  short_description: "Help with Solublempnn tasks"
+  default_prompt: "Use $solublempnn to help with this task using its documented guidance and governed capabilities."

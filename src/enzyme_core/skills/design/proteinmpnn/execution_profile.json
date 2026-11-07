@@ -1,0 +1,42 @@
+{
+  "schema_version": "enzyme-core/skill-execution-profile/v1",
+  "skill": "proteinmpnn",
+  "default_operation": "local_ligandmpnn",
+  "operations": {
+    "local_ligandmpnn": {
+      "kind": "local_python",
+      "path": "scripts/local_ligandmpnn.py",
+      "requires_modules": [
+        "prody"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED",
+      "runtime_contract": {
+        "schema_version": "enzyme-core/runtime-contract/v1",
+        "status": "DECLARED_NOT_RUNTIME_VALIDATED",
+        "gpu_control": [
+          "--require-cuda",
+          null
+        ]
+      }
+    },
+    "verify_sequences": {
+      "kind": "local_python",
+      "path": "scripts/verify_sequences.py",
+      "requires_modules": [],
+      "requires_resources": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "SEQUENCE_CONSTRAINT_COMPARISON_ONLY"
+    }
+  },
+  "resource_class": "high",
+  "supports_retry": false,
+  "effects": {
+    "task_directory_write": true,
+    "external_read": false,
+    "external_side_effect": false
+  },
+  "evidence_boundary": "ProteinMPNN sequences are computational designs and do not establish folding, solubility, expression, binding, or catalytic activity.",
+  "migration_validation": "STRUCTURAL_ONLY",
+  "completion_rule": "Execution status, requested artifact validation, and scientific interpretation are distinct."
+}
