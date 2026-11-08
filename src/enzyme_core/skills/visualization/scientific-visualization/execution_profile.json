@@ -1,0 +1,28 @@
+{
+  "schema_version": "enzyme-core/skill-execution-profile/v1",
+  "skill": "scientific-visualization",
+  "default_operation": "figure_export",
+  "operations": {
+    "figure_export": {
+      "kind": "local_python",
+      "path": "scripts/figure_export.py",
+      "requires_modules": [
+        "PyPDF2",
+        "matplotlib",
+        "numpy"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    }
+  },
+  "resource_class": "light",
+  "supports_retry": false,
+  "effects": {
+    "task_directory_write": true,
+    "external_read": false,
+    "external_side_effect": false
+  },
+  "evidence_boundary": "A publication-style figure does not validate its underlying data, statistical method, or scientific claim.",
+  "migration_validation": "STRUCTURAL_ONLY",
+  "completion_rule": "Execution status, requested artifact validation, and scientific interpretation are distinct."
+}

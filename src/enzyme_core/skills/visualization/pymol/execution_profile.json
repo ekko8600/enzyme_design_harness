@@ -1,0 +1,54 @@
+{
+  "schema_version": "enzyme-core/skill-execution-profile/v1",
+  "skill": "pymol",
+  "default_operation": "author",
+  "operations": {
+    "author": {
+      "kind": "host_authored",
+      "validation": "explicit_artifact_contract",
+      "requires_modules": [],
+      "scientific_validation": "NOT_ASSESSED"
+    },
+    "functional_geometry": {
+      "kind": "local_python",
+      "path": "scripts/functional_geometry.py",
+      "requires_modules": [
+        "pymol",
+        "numpy"
+      ],
+      "requires_resources": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "GEOMETRY_ONLY"
+    },
+    "verify_session": {
+      "kind": "local_python",
+      "path": "scripts/verify_session.py",
+      "requires_modules": [
+        "pymol"
+      ],
+      "requires_resources": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "SESSION_RELOADABILITY_ONLY"
+    },
+    "verify_session_bundle": {
+      "kind": "local_python",
+      "path": "scripts/verify_session_bundle.py",
+      "requires_modules": [
+        "pymol"
+      ],
+      "requires_resources": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "BUNDLE_PROVENANCE_AND_SESSION_RELOADABILITY_ONLY"
+    }
+  },
+  "resource_class": "standard",
+  "supports_retry": false,
+  "effects": {
+    "task_directory_write": true,
+    "external_read": false,
+    "external_side_effect": false
+  },
+  "evidence_boundary": "Formal execution evidence is limited to the declared contract, validated artifacts, provenance, and scientific review boundaries.",
+  "migration_validation": "STRUCTURAL_ONLY",
+  "completion_rule": "Execution status, requested artifact validation, and scientific interpretation are distinct."
+}

@@ -1,0 +1,77 @@
+{
+  "schema_version": "enzyme-core/skill-execution-profile/v1",
+  "skill": "protein-diagram",
+  "default_operation": "draw_domain_map",
+  "operations": {
+    "draw_alignment": {
+      "kind": "local_python",
+      "path": "scripts/draw_alignment.py",
+      "requires_modules": [
+        "matplotlib",
+        "pymsaviz"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "draw_contact_map": {
+      "kind": "local_python",
+      "path": "scripts/draw_contact_map.py",
+      "requires_modules": [
+        "Bio",
+        "matplotlib",
+        "numpy"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "draw_domain_map": {
+      "kind": "local_python",
+      "path": "scripts/draw_domain_map.py",
+      "requires_modules": [
+        "matplotlib"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "draw_features": {
+      "kind": "local_python",
+      "path": "scripts/draw_features.py",
+      "requires_modules": [
+        "matplotlib"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "draw_ramachandran": {
+      "kind": "local_python",
+      "path": "scripts/draw_ramachandran.py",
+      "requires_modules": [
+        "Bio",
+        "matplotlib",
+        "numpy"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "draw_secondary_structure": {
+      "kind": "local_python",
+      "path": "scripts/draw_secondary_structure.py",
+      "requires_modules": [
+        "Bio",
+        "matplotlib"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    }
+  },
+  "resource_class": "light",
+  "supports_retry": false,
+  "effects": {
+    "task_directory_write": true,
+    "external_read": true,
+    "external_side_effect": false
+  },
+  "evidence_boundary": "A rendered domain map visualizes supplied annotations and does not independently establish domain boundaries or protein function.",
+  "migration_validation": "STRUCTURAL_ONLY",
+  "completion_rule": "Execution status, requested artifact validation, and scientific interpretation are distinct."
+}

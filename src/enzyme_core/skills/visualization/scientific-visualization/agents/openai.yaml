@@ -1,0 +1,4 @@
+interface:
+  display_name: "Scientific Visualization"
+  short_description: "Help with Scientific Visualization tasks"
+  default_prompt: "Use $scientific-visualization to help with this task using its documented guidance and governed capabilities."

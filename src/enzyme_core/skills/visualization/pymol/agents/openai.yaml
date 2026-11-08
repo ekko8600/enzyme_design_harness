@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pymol"
+  short_description: "Help with Pymol tasks and workflows"
+  default_prompt: "Use $pymol to help with this task using its documented guidance and governed capabilities."

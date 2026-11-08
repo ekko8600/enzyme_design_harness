@@ -1,0 +1,4 @@
+interface:
+  display_name: "Scientific Schematics"
+  short_description: "Help with Scientific Schematics tasks"
+  default_prompt: "Use $scientific-schematics to help with this task using its documented guidance and governed capabilities."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Protein Diagram"
+  short_description: "Help with Protein Diagram tasks"
+  default_prompt: "Use $protein-diagram to help with this task using its documented guidance and governed capabilities."
