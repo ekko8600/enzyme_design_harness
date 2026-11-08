@@ -1,0 +1,4 @@
+interface:
+  display_name: "Literature Search Arxiv"
+  short_description: "Help with Literature Search Arxiv tasks"
+  default_prompt: "Use $literature-search-arxiv to help with this task using its documented guidance and governed capabilities."

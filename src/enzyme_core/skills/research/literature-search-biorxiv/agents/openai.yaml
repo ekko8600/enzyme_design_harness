@@ -1,0 +1,4 @@
+interface:
+  display_name: "Literature Search Biorxiv"
+  short_description: "Help with Literature Search Biorxiv tasks"
+  default_prompt: "Use $literature-search-biorxiv to help with this task using its documented guidance and governed capabilities."

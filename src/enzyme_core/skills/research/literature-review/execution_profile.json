@@ -1,0 +1,40 @@
+{
+  "schema_version": "enzyme-core/skill-execution-profile/v1",
+  "skill": "literature-review",
+  "default_operation": "search_databases",
+  "operations": {
+    "generate_pdf": {
+      "kind": "local_python",
+      "path": "scripts/generate_pdf.py",
+      "requires_modules": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "search_databases": {
+      "kind": "local_python",
+      "path": "scripts/search_databases.py",
+      "requires_modules": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "verify_citations": {
+      "kind": "local_python",
+      "path": "scripts/verify_citations.py",
+      "requires_modules": [
+        "requests"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    }
+  },
+  "resource_class": "light",
+  "supports_retry": false,
+  "effects": {
+    "task_directory_write": true,
+    "external_read": false,
+    "external_side_effect": false
+  },
+  "evidence_boundary": "This entrypoint only processes supplied records. It does not search databases, verify citations, read full text, or establish that a review is systematic or publication-ready.",
+  "migration_validation": "STRUCTURAL_ONLY",
+  "completion_rule": "Execution status, requested artifact validation, and scientific interpretation are distinct."
+}

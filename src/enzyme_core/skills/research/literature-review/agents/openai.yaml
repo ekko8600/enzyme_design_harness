@@ -1,0 +1,4 @@
+interface:
+  display_name: "Literature Review"
+  short_description: "Help with Literature Review tasks"
+  default_prompt: "Use $literature-review to help with this task using its documented guidance and governed capabilities."

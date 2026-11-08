@@ -1,0 +1,4 @@
+interface:
+  display_name: "Literature Protein Collector"
+  short_description: "Help with Literature Protein Collector tasks"
+  default_prompt: "Use $literature-protein-collector to help with this task using its documented guidance and governed capabilities."

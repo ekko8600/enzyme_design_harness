@@ -1,0 +1,33 @@
+{
+  "schema_version": "enzyme-core/skill-execution-profile/v1",
+  "skill": "literature-protein-collector",
+  "default_operation": "literature_collector",
+  "operations": {
+    "literature_collector": {
+      "kind": "local_python",
+      "path": "scripts/literature_collector.py",
+      "requires_modules": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "ocr_pdf": {
+      "kind": "local_python",
+      "path": "scripts/ocr_pdf.py",
+      "requires_modules": [
+        "requests"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    }
+  },
+  "resource_class": "standard",
+  "supports_retry": false,
+  "effects": {
+    "task_directory_write": true,
+    "external_read": true,
+    "external_side_effect": false
+  },
+  "evidence_boundary": "Report only legally accessible source evidence; abstract-only or metadata-only evidence cannot be presented as full-text support.",
+  "migration_validation": "STRUCTURAL_ONLY",
+  "completion_rule": "Execution status, requested artifact validation, and scientific interpretation are distinct."
+}
