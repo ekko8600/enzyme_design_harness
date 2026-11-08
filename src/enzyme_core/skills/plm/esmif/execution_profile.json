@@ -1,0 +1,42 @@
+{
+  "schema_version": "enzyme-core/skill-execution-profile/v1",
+  "skill": "esmif",
+  "default_operation": "local_esmif_zeroshot",
+  "operations": {
+    "local_esmif_zeroshot": {
+      "kind": "local_python",
+      "path": "scripts/local_esmif_zeroshot.py",
+      "requires_modules": [
+        "esm",
+        "torch"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED",
+      "runtime_contract": {
+        "schema_version": "enzyme-core/runtime-contract/v1",
+        "status": "DECLARED_NOT_RUNTIME_VALIDATED",
+        "gpu_control": [
+          "--device",
+          "cuda"
+        ],
+        "offline_control": "offline",
+        "offline_model_files": {
+          "resource": "esmif",
+          "files": [
+            "esm_if1_gvp4_t16_142M_UR50.pt"
+          ]
+        }
+      }
+    }
+  },
+  "resource_class": "high",
+  "supports_retry": false,
+  "effects": {
+    "task_directory_write": true,
+    "external_read": false,
+    "external_side_effect": false
+  },
+  "evidence_boundary": "Conditional sequence scores on a fixed backbone are ranking evidence only, not experimental fitness or structural validation.",
+  "migration_validation": "STRUCTURAL_ONLY",
+  "completion_rule": "Execution status, requested artifact validation, and scientific interpretation are distinct."
+}

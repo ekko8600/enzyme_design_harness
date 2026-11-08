@@ -1,0 +1,18 @@
+schema_version: enzyme-agent/scientific-contract/v2
+skill_id: esmif
+version: 1.0.0
+category: plm
+capability_ids:
+- science.general_operation
+execution_profile_path: execution_profile.json
+preconditions: []
+inputs: []
+outputs: []
+state_effect: none
+evidence:
+  status: reviewed
+resources:
+- high
+side_effects:
+- task_directory_write
+dependencies: []

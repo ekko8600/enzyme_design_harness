@@ -1,0 +1,37 @@
+{
+  "schema_version": "enzyme-core/skill-execution-profile/v1",
+  "skill": "saprot",
+  "default_operation": "saprot_cli",
+  "operations": {
+    "saprot_cli": {
+      "kind": "local_python",
+      "path": "scripts/saprot_cli.py",
+      "requires_modules": [
+        "Bio",
+        "numpy",
+        "torch",
+        "transformers"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED",
+      "runtime_contract": {
+        "schema_version": "enzyme-core/runtime-contract/v1",
+        "status": "DECLARED_NOT_RUNTIME_VALIDATED",
+        "gpu_control": [
+          "--device",
+          "cuda"
+        ]
+      }
+    }
+  },
+  "resource_class": "high",
+  "supports_retry": false,
+  "effects": {
+    "task_directory_write": true,
+    "external_read": false,
+    "external_side_effect": false
+  },
+  "evidence_boundary": "SaProt log-probability differences provide structure-aware ranking evidence only, not experimental fitness or activity.",
+  "migration_validation": "STRUCTURAL_ONLY",
+  "completion_rule": "Execution status, requested artifact validation, and scientific interpretation are distinct."
+}

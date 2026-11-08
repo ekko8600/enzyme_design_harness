@@ -1,0 +1,4 @@
+interface:
+  display_name: "Saprot"
+  short_description: "Help with Saprot tasks and workflows"
+  default_prompt: "Use $saprot to help with this task using its documented guidance and governed capabilities."

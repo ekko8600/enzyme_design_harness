@@ -1,0 +1,9 @@
+{
+  "case": "invalid-option-rejected",
+  "expected_tokens": [
+    "error",
+    "usage",
+    "no such file",
+    "not found"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "case": "entrypoint-help-contract",
+  "scope": "orchestration-only",
+  "semantic_tokens": [
+    "syntax"
+  ],
+  "description": "Small local entrypoint contract probe; it does not run production scientific work."
+}

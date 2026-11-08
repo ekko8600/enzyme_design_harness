@@ -1,0 +1,37 @@
+schema_version: enzyme-agent/scientific-contract/v2
+skill_id: esm
+version: 1.0.0
+category: plm
+capability_ids:
+- sequence.mutation_scoring.language_model
+execution_profile_path: execution_profile.json
+preconditions: []
+inputs:
+- role: candidate_set
+- role: reference_sequence
+outputs:
+- role: mutation_scores
+  media_types:
+  - application/json
+state_effect: none
+evidence:
+  status: reviewed
+  evidence_family: sequence_model
+  modality: protein_language_model
+  dependence_group: sequence_derived
+  allowed_claims:
+  - property: sequence_model_preference
+    relation: predicted_more_preferred_than
+    scope: candidate_set
+    max_strength: comparative
+  forbidden_properties:
+  - protein_stability
+  - expression
+  - solubility
+  - catalytic_activity
+  - engineering_feasibility
+resources:
+- high
+side_effects:
+- task_directory_write
+dependencies: []

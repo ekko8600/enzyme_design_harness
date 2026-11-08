@@ -1,0 +1,35 @@
+schema_version: enzyme-agent/scientific-contract/v2
+skill_id: enzyme-qm-ts
+version: 1.0.0
+category: qmmm
+capability_ids:
+- science.general_operation
+execution_profile_path: execution_profile.json
+preconditions: []
+inputs: []
+outputs:
+- role: scientific_result
+  media_types:
+  - application/vnd.enzyme-agent.scientific-result+json
+state_effect: none
+evidence:
+  status: reviewed
+resources:
+- high
+side_effects:
+- task_directory_write
+dependencies: []
+scientific_result:
+  schema_version: enzyme-agent/scientific-result/v1
+  adapter: physicochemical.enzyme-qm-ts
+  numeric: true
+  required_observables:
+  - barrier
+  - transition
+  - charge
+  - proton
+  - catalytic
+  required_qc:
+  - convergence
+  - qm_region_declared
+  claim_ceiling: declared-model chemical-step proxy; not direct catalytic activity

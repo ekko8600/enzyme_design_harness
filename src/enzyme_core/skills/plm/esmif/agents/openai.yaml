@@ -1,0 +1,4 @@
+interface:
+  display_name: "Esmif"
+  short_description: "Help with Esmif tasks and workflows"
+  default_prompt: "Use $esmif to help with this task using its documented guidance and governed capabilities."

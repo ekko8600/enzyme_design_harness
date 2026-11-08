@@ -1,0 +1,4 @@
+interface:
+  display_name: "Esm"
+  short_description: "Help with Esm tasks and workflows"
+  default_prompt: "Use $esm to help with this task using its documented guidance and governed capabilities."

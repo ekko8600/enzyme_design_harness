@@ -1,0 +1,155 @@
+&GLOBAL
+  PROJECT __PROJECT__
+  RUN_TYPE GEO_OPT
+  PRINT_LEVEL LOW
+&END GLOBAL
+&MOTION
+  &GEO_OPT
+    OPTIMIZER LBFGS
+    MAX_ITER 120
+    MAX_FORCE 1.0E-3
+  &END GEO_OPT
+  &CONSTRAINT
+    &COLLECTIVE
+      COLVAR 1
+      INTERMOLECULAR .TRUE.
+      TARGET [angstrom] __TGT__
+      ! GEO_OPT does NOT enforce SHAKE (hard) constraints — only MD does.
+      ! A stiff harmonic RESTRAINT adds a penalty force the optimizer feels,
+      ! pulling the CV to TARGET. Record the ACTUAL CV, not TARGET.
+      &RESTRAINT
+        K [hartree*bohr^-2] 3.0
+      &END RESTRAINT
+    &END COLLECTIVE
+    &FIXED_ATOMS
+      ! Freeze the entire MM environment; only the QM region relaxes along the RC.
+      ! Adiabatic mapping in a frozen field — standard first-pass QM/MM barrier.
+      MM_SUBSYS MOLECULAR
+    &END FIXED_ATOMS
+  &END CONSTRAINT
+  &PRINT
+    &TRAJECTORY
+      &EACH
+        GEO_OPT 0
+      &END EACH
+      ADD_LAST NUMERIC
+    &END TRAJECTORY
+  &END PRINT
+&END MOTION
+__EXT_RESTART__
+&FORCE_EVAL
+  METHOD QMMM
+  &DFT
+    BASIS_SET_FILE_NAME BASIS_MOLOPT
+    POTENTIAL_FILE_NAME POTENTIAL
+    CHARGE -1
+    MULTIPLICITY 1
+    &MGRID
+      COMMENSURATE
+      CUTOFF 300
+    &END MGRID
+    &QS
+      EPS_DEFAULT 1.0E-10
+      METHOD GPW
+    &END QS
+    &SCF
+      EPS_SCF 1.0E-6
+      MAX_SCF 40
+      SCF_GUESS RESTART
+      &OT T
+        MINIMIZER DIIS
+        PRECONDITIONER FULL_ALL
+      &END OT
+      &OUTER_SCF
+        EPS_SCF 1.0E-6
+        MAX_SCF 15
+      &END OUTER_SCF
+    &END SCF
+    &XC
+      &XC_FUNCTIONAL BLYP
+      &END XC_FUNCTIONAL
+    &END XC
+  &END DFT
+  &MM
+    &FORCEFIELD
+      PARMTYPE AMBER
+      PARM_FILE_NAME cm_complex.prmtop
+      EI_SCALE14 1.0
+      VDW_SCALE14 1.0
+      &SPLINE
+        EMAX_SPLINE 1.0E8
+        RCUT_NB [angstrom] 12
+      &END SPLINE
+    &END FORCEFIELD
+    &POISSON
+      &EWALD
+        EWALD_TYPE SPME
+        ALPHA .40
+        GMAX 90 84 80
+      &END EWALD
+    &END POISSON
+  &END MM
+  &QMMM
+    ECOUPL GAUSS
+    USE_GEEP_LIB 15
+    &CELL
+      ABC 24.0 24.0 24.0
+      PERIODIC XYZ
+    &END CELL
+    &PERIODIC
+      &MULTIPOLE ON
+      &END MULTIPOLE
+    &END PERIODIC
+    &QM_KIND C
+      MM_INDEX 3766 3767 3768 3769 3770 3771 3772 3773 3774 3775 1415 1418 1423
+    &END QM_KIND
+    &QM_KIND H
+      MM_INDEX 3776 3777 3778 3779 3780 3781 3782 3783 1416 1417 1419 1420 1422 1425 1426 1428 1429
+    &END QM_KIND
+    &QM_KIND N
+      MM_INDEX 1421 1424 1427
+    &END QM_KIND
+    &QM_KIND O
+      MM_INDEX 3760 3761 3762 3763 3764 3765
+    &END QM_KIND
+    &LINK
+      QM_INDEX 1415
+      MM_INDEX 1412
+      LINK_TYPE IMOMM
+    &END LINK
+  &END QMMM
+  &SUBSYS
+    &CELL
+      ABC 84.193 78.981 75.186
+      ALPHA_BETA_GAMMA 90 90 90
+      PERIODIC XYZ
+    &END CELL
+    &COLVAR
+      &DISTANCE
+        ATOMS 3775 3768
+      &END DISTANCE
+    &END COLVAR
+    &KIND H
+      BASIS_SET DZVP-MOLOPT-GTH
+      POTENTIAL GTH-BLYP-q1
+    &END KIND
+    &KIND C
+      BASIS_SET DZVP-MOLOPT-GTH
+      POTENTIAL GTH-BLYP-q4
+    &END KIND
+    &KIND N
+      BASIS_SET DZVP-MOLOPT-GTH
+      POTENTIAL GTH-BLYP-q5
+    &END KIND
+    &KIND O
+      BASIS_SET DZVP-MOLOPT-GTH
+      POTENTIAL GTH-BLYP-q6
+    &END KIND
+    &TOPOLOGY
+      CONN_FILE_FORMAT AMBER
+      CONN_FILE_NAME cm_complex.prmtop
+      COORD_FILE_FORMAT __COORDFMT__
+      COORD_FILE_NAME __COORD__
+    &END TOPOLOGY
+  &END SUBSYS
+&END FORCE_EVAL

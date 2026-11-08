@@ -1,0 +1,4 @@
+interface:
+  display_name: "Enzyme Qm Ts"
+  short_description: "Help with Enzyme Qm Ts tasks"
+  default_prompt: "Use $enzyme-qm-ts to help with this task using its documented guidance and governed capabilities."

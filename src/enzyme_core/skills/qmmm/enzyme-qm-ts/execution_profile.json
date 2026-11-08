@@ -1,0 +1,173 @@
+{
+  "schema_version": "enzyme-core/skill-execution-profile/v1",
+  "skill": "enzyme-qm-ts",
+  "default_operation": "selfcheck",
+  "operations": {
+    "analyze_charges": {
+      "kind": "local_python",
+      "path": "scripts/analyze_charges.py",
+      "requires_modules": [
+        "matplotlib"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "analyze_scan": {
+      "kind": "local_python",
+      "path": "scripts/analyze_scan.py",
+      "requires_modules": [
+        "matplotlib"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "analyze_ts_electrostatics": {
+      "kind": "local_python",
+      "path": "scripts/analyze_ts_electrostatics.py",
+      "requires_modules": [
+        "numpy",
+        "parmed"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "build_qm_region": {
+      "kind": "local_python",
+      "path": "scripts/build_qm_region.py",
+      "requires_modules": [
+        "parmed"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "cluster_ensemble": {
+      "kind": "local_executable",
+      "path": "scripts/cluster_ensemble.sh",
+      "requires_modules": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "extract_conformations": {
+      "kind": "local_python",
+      "path": "scripts/extract_conformations.py",
+      "requires_modules": [
+        "numpy"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "make_report": {
+      "kind": "local_python",
+      "path": "scripts/make_report.py",
+      "requires_modules": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "param_substrate": {
+      "kind": "local_executable",
+      "path": "scripts/param_substrate.sh",
+      "requires_modules": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "place_ligand": {
+      "kind": "local_python",
+      "path": "scripts/place_ligand.py",
+      "requires_modules": [
+        "numpy"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "run_cp2k": {
+      "kind": "local_executable",
+      "path": "scripts/run_cp2k.sh",
+      "requires_modules": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "run_cp2k_auto": {
+      "kind": "local_executable",
+      "path": "scripts/run_cp2k_auto.sh",
+      "requires_modules": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "run_cp2k_gpu": {
+      "kind": "local_executable",
+      "path": "scripts/run_cp2k_gpu.sh",
+      "requires_modules": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "run_md_ensemble": {
+      "kind": "local_executable",
+      "path": "scripts/run_md_ensemble.sh",
+      "requires_modules": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "run_openmm_ensemble": {
+      "kind": "local_python",
+      "path": "scripts/run_openmm_ensemble.py",
+      "requires_modules": [
+        "openmm"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "run_scan": {
+      "kind": "local_executable",
+      "path": "scripts/run_scan.sh",
+      "requires_modules": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "selfcheck": {
+      "kind": "local_executable",
+      "path": "scripts/selfcheck.sh",
+      "requires_modules": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "theozyme_denovo": {
+      "kind": "local_python",
+      "path": "scripts/theozyme_denovo.py",
+      "requires_modules": [
+        "numpy"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "visualize_ensembles": {
+      "kind": "local_python",
+      "path": "scripts/visualize_ensembles.py",
+      "requires_modules": [
+        "matplotlib",
+        "numpy"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "visualize_report": {
+      "kind": "local_python",
+      "path": "scripts/visualize_report.py",
+      "requires_modules": [
+        "matplotlib",
+        "numpy"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    }
+  },
+  "resource_class": "high",
+  "supports_retry": false,
+  "effects": {
+    "task_directory_write": true,
+    "external_read": false,
+    "external_side_effect": false
+  },
+  "evidence_boundary": "Single calculations and unvalidated transition-state guesses are observations only; quantitative barriers require convergence and method validation.",
+  "migration_validation": "STRUCTURAL_ONLY",
+  "completion_rule": "Execution status, requested artifact validation, and scientific interpretation are distinct."
+}

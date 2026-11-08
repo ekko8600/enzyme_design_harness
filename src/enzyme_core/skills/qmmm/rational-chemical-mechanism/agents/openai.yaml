@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rational Chemical Mechanism"
+  short_description: "Help with Rational Chemical Mechanism tasks"
+  default_prompt: "Use $rational-chemical-mechanism to help with this task using its documented guidance and governed capabilities."

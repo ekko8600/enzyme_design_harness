@@ -1,0 +1,47 @@
+{
+  "schema_version": "enzyme-core/skill-execution-profile/v1",
+  "skill": "esm",
+  "default_operation": "local_esm2_zeroshot",
+  "operations": {
+    "local_esm2_zeroshot": {
+      "kind": "local_python",
+      "path": "scripts/local_esm2_zeroshot.py",
+      "requires_modules": [
+        "esm",
+        "torch"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED",
+      "runtime_contract": {
+        "schema_version": "enzyme-core/runtime-contract/v1",
+        "status": "DECLARED_NOT_RUNTIME_VALIDATED",
+        "gpu_control": [
+          "--device",
+          "cuda"
+        ],
+        "input_semantics": {
+          "sequence": "protein_sequence_literal",
+          "sequence_fasta": "single_protein_fasta"
+        },
+        "offline_control": "offline",
+        "offline_model_files": {
+          "resource": "esm",
+          "files": [
+            "{model}.pt",
+            "{model}-contact-regression.pt"
+          ]
+        }
+      }
+    }
+  },
+  "resource_class": "high",
+  "supports_retry": false,
+  "effects": {
+    "task_directory_write": true,
+    "external_read": false,
+    "external_side_effect": false
+  },
+  "evidence_boundary": "Masked-marginal scores support relative computational ranking only and do not establish activity, stability, or expression.",
+  "migration_validation": "STRUCTURAL_ONLY",
+  "completion_rule": "Execution status, requested artifact validation, and scientific interpretation are distinct."
+}
