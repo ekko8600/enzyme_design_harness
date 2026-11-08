@@ -1,0 +1,4 @@
+interface:
+  display_name: "Embl Ebi Ols"
+  short_description: "Help with Embl Ebi Ols tasks"
+  default_prompt: "Use $embl-ebi-ols to help with this task using its documented guidance and governed capabilities."

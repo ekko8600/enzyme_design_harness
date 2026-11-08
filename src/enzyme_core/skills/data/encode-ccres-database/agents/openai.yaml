@@ -1,0 +1,4 @@
+interface:
+  display_name: "Encode Ccres Database"
+  short_description: "Help with Encode Ccres Database tasks"
+  default_prompt: "Use $encode-ccres-database to help with this task using its documented guidance and governed capabilities."

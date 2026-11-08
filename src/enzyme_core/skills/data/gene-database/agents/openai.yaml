@@ -1,0 +1,4 @@
+interface:
+  display_name: "Gene Database"
+  short_description: "Help with Gene Database tasks"
+  default_prompt: "Use $gene-database to help with this task using its documented guidance and governed capabilities."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Clinvar Database"
+  short_description: "Help with Clinvar Database tasks"
+  default_prompt: "Use $clinvar-database to help with this task using its documented guidance and governed capabilities."

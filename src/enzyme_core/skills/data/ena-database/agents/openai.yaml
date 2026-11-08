@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ena Database"
+  short_description: "Help with Ena Database tasks"
+  default_prompt: "Use $ena-database to help with this task using its documented guidance and governed capabilities."

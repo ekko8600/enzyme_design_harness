@@ -1,0 +1,28 @@
+{
+  "schema_version": "enzyme-core/skill-execution-profile/v1",
+  "skill": "brenda-database",
+  "default_operation": "brenda_cli",
+  "operations": {
+    "brenda_cli": {
+      "kind": "local_python",
+      "path": "scripts/brenda_cli.py",
+      "requires_modules": [
+        "pandas",
+        "requests",
+        "zeep"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    }
+  },
+  "resource_class": "standard",
+  "supports_retry": false,
+  "effects": {
+    "task_directory_write": true,
+    "external_read": true,
+    "external_side_effect": false
+  },
+  "evidence_boundary": "BRENDA records are literature-derived database annotations and do not independently validate kinetics, assay comparability, or catalytic activity.",
+  "migration_validation": "STRUCTURAL_ONLY",
+  "completion_rule": "Execution status, requested artifact validation, and scientific interpretation are distinct."
+}

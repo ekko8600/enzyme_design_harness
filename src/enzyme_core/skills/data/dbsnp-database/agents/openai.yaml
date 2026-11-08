@@ -1,0 +1,4 @@
+interface:
+  display_name: "Dbsnp Database"
+  short_description: "Help with Dbsnp Database tasks"
+  default_prompt: "Use $dbsnp-database to help with this task using its documented guidance and governed capabilities."

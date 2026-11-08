@@ -1,0 +1,4 @@
+interface:
+  display_name: "Brenda Database"
+  short_description: "Help with Brenda Database tasks"
+  default_prompt: "Use $brenda-database to help with this task using its documented guidance and governed capabilities."

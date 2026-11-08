@@ -1,0 +1,4 @@
+interface:
+  display_name: "Chembl Database"
+  short_description: "Help with Chembl Database tasks"
+  default_prompt: "Use $chembl-database to help with this task using its documented guidance and governed capabilities."
