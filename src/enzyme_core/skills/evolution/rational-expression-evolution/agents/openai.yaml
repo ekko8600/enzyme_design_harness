@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rational Expression Evolution"
+  short_description: "Help with Rational Expression Evolution tasks"
+  default_prompt: "Use $rational-expression-evolution to help with this task using its documented guidance and governed capabilities."

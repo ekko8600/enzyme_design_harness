@@ -1,0 +1,37 @@
+{
+  "schema_version": "enzyme-core/skill-execution-profile/v1",
+  "skill": "pyrosetta-docking",
+  "default_operation": "pyrosetta_tools",
+  "operations": {
+    "pyrosetta_tools": {
+      "kind": "local_python",
+      "path": "scripts/pyrosetta_tools.py",
+      "requires_modules": [
+        "pyrosetta"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "static_protocols": {
+      "kind": "local_python",
+      "target_skill": "pyrosetta-setup",
+      "path": "scripts/static_protocols.py",
+      "requires_modules": [
+        "pyrosetta"
+      ],
+      "requires_resources": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    }
+  },
+  "resource_class": "standard",
+  "supports_retry": false,
+  "effects": {
+    "task_directory_write": false,
+    "external_read": false,
+    "external_side_effect": false
+  },
+  "evidence_boundary": "Formal execution evidence is limited to the declared contract, validated artifacts, provenance, and scientific review boundaries.",
+  "migration_validation": "STRUCTURAL_ONLY",
+  "completion_rule": "Execution status, requested artifact validation, and scientific interpretation are distinct."
+}

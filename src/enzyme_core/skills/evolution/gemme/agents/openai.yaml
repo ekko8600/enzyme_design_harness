@@ -1,0 +1,4 @@
+interface:
+  display_name: "Gemme"
+  short_description: "Help with Gemme tasks and workflows"
+  default_prompt: "Use $gemme to help with this task using its documented guidance and governed capabilities."

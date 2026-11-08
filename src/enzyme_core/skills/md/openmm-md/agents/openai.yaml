@@ -1,0 +1,4 @@
+interface:
+  display_name: "Openmm Md"
+  short_description: "Help with Openmm Md tasks"
+  default_prompt: "Use $openmm-md to help with this task using its documented guidance and governed capabilities."

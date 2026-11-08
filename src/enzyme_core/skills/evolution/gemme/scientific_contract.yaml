@@ -1,0 +1,41 @@
+schema_version: enzyme-agent/scientific-contract/v2
+skill_id: gemme
+version: 1.0.0
+category: evolution
+capability_ids:
+- sequence.mutation_scoring.evolutionary
+execution_profile_path: execution_profile.json
+preconditions:
+- msa_binding_verified
+inputs:
+- role: candidate_set
+- role: reference_sequence
+- role: msa
+  media_types:
+  - text/x-fasta
+outputs:
+- role: mutation_scores
+  media_types:
+  - application/json
+state_effect: none
+evidence:
+  status: reviewed
+  evidence_family: evolutionary_sequence
+  modality: conservation_model
+  dependence_group: sequence_derived
+  allowed_claims:
+  - property: evolutionary_tolerance
+    relation: predicted_more_tolerated_than
+    scope: candidate_set
+    max_strength: comparative
+  forbidden_properties:
+  - protein_stability
+  - expression
+  - solubility
+  - catalytic_activity
+  - engineering_feasibility
+resources:
+- high
+side_effects:
+- task_directory_write
+dependencies: []

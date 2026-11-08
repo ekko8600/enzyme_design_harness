@@ -1,0 +1,4 @@
+interface:
+  display_name: "Binding Affinity"
+  short_description: "Estimate protein-complex binding energies with OpenMM."
+  default_prompt: "Use $binding-affinity to estimate an explicitly bounded OpenMM binding energy for this protein complex."

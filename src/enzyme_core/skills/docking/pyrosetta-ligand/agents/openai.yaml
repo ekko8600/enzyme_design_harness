@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pyrosetta Ligand"
+  short_description: "Help with Pyrosetta Ligand tasks"
+  default_prompt: "Use $pyrosetta-ligand to help with this task using its documented guidance and governed capabilities."

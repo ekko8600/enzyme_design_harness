@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pyrosetta Docking"
+  short_description: "Help with Pyrosetta Docking tasks"
+  default_prompt: "Use $pyrosetta-docking to help with this task using its documented guidance and governed capabilities."

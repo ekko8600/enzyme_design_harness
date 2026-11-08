@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rational Binding Selectivity"
+  short_description: "Help with Rational Binding Selectivity tasks"
+  default_prompt: "Use $rational-binding-selectivity to help with this task using its documented guidance and governed capabilities."

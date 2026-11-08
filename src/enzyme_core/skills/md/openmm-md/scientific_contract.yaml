@@ -1,0 +1,36 @@
+schema_version: enzyme-agent/scientific-contract/v2
+skill_id: openmm-md
+version: 1.0.0
+category: md
+capability_ids:
+- science.general_operation
+execution_profile_path: execution_profile.json
+preconditions: []
+inputs: []
+outputs:
+- role: scientific_result
+  media_types:
+  - application/vnd.enzyme-agent.scientific-result+json
+state_effect: none
+evidence:
+  status: reviewed
+resources: []
+side_effects:
+- task_directory_write
+dependencies: []
+scientific_result:
+  schema_version: enzyme-agent/scientific-result/v1
+  adapter: physicochemical.openmm-md
+  numeric: true
+  required_observables:
+  - rmsd
+  - rmsf
+  - occupancy
+  - flexibility
+  - hydration
+  - contact
+  - dynamics
+  required_qc:
+  - trajectory_complete
+  - replicate_consistency
+  claim_ceiling: trajectory-derived computational dynamics proxy; not thermal survival

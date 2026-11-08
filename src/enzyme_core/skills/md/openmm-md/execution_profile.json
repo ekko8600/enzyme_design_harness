@@ -1,0 +1,98 @@
+{
+  "schema_version": "enzyme-core/skill-execution-profile/v1",
+  "skill": "openmm-md",
+  "default_operation": "run_openmm_md",
+  "operations": {
+    "extract_ligands": {
+      "kind": "local_python",
+      "path": "scripts/extract_ligands.py",
+      "requires_modules": [
+        "prody",
+        "pypdb",
+        "rdkit"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "mutate_pdb": {
+      "kind": "local_python",
+      "path": "scripts/mutate_pdb.py",
+      "requires_modules": [
+        "pymol"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "run_openmm_md": {
+      "kind": "local_python",
+      "path": "scripts/run_openmm_md.py",
+      "requires_modules": [
+        "MDAnalysis",
+        "mdtraj",
+        "numpy",
+        "openff",
+        "openmm",
+        "openmmforcefields",
+        "pandas",
+        "pdbfixer",
+        "prody",
+        "pypdb",
+        "rdkit",
+        "tqdm"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED",
+      "runtime_contract": {
+        "schema_version": "enzyme-core/runtime-contract/v1",
+        "status": "DECLARED_NOT_RUNTIME_VALIDATED",
+        "gpu_control": [
+          "--platform",
+          "CUDA"
+        ]
+      }
+    },
+    "simulate": {
+      "kind": "local_python",
+      "path": "scripts/simulate.py",
+      "requires_modules": [
+        "MDAnalysis",
+        "mdtraj",
+        "numpy",
+        "openff",
+        "openmm",
+        "openmmforcefields",
+        "pandas",
+        "pdbfixer",
+        "prody",
+        "pypdb",
+        "rdkit",
+        "tqdm"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "analyze_protein_trajectory": {
+      "kind": "local_python",
+      "path": "scripts/analyze_protein_trajectory.py",
+      "requires_modules": [
+        "mdtraj",
+        "numpy",
+        "pandas",
+        "matplotlib",
+        "PIL"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    }
+  },
+  "resource_class": "standard",
+  "supports_retry": false,
+  "effects": {
+    "task_directory_write": true,
+    "external_read": false,
+    "external_side_effect": false
+  },
+  "evidence_boundary": "Formal execution evidence is limited to the declared contract, validated artifacts, provenance, and scientific review boundaries.",
+  "migration_validation": "STRUCTURAL_ONLY",
+  "completion_rule": "Execution status, requested artifact validation, and scientific interpretation are distinct."
+}

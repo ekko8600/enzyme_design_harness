@@ -1,0 +1,36 @@
+{
+  "schema_version": "enzyme-core/skill-execution-profile/v1",
+  "skill": "gemme",
+  "default_operation": "gemme_cli",
+  "operations": {
+    "gemme_cli": {
+      "kind": "local_python",
+      "path": "scripts/gemme_cli.py",
+      "requires_modules": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED",
+      "requires_resources": [
+        "gemme",
+        "docker"
+      ],
+      "runtime_contract": {
+        "schema_version": "enzyme-core/runtime-contract/v1",
+        "status": "DECLARED_NOT_RUNTIME_VALIDATED",
+        "input_semantics": {
+          "sequence": "protein_sequence_literal",
+          "sequence_fasta": "single_protein_fasta"
+        }
+      }
+    }
+  },
+  "resource_class": "high",
+  "supports_retry": false,
+  "effects": {
+    "task_directory_write": true,
+    "external_read": false,
+    "external_side_effect": false
+  },
+  "evidence_boundary": "GEMME scores are MSA-dependent evolutionary rankings, not quantitative activity or stability measurements.",
+  "migration_validation": "STRUCTURAL_ONLY",
+  "completion_rule": "Execution status, requested artifact validation, and scientific interpretation are distinct."
+}

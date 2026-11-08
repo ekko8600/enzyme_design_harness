@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rational Transport Dynamics"
+  short_description: "Help with Rational Transport Dynamics tasks"
+  default_prompt: "Use $rational-transport-dynamics to help with this task using its documented guidance and governed capabilities."

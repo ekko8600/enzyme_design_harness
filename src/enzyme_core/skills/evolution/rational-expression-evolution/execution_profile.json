@@ -1,0 +1,23 @@
+{
+  "schema_version": "enzyme-core/skill-execution-profile/v1",
+  "skill": "rational-expression-evolution",
+  "default_operation": "author",
+  "operations": {
+    "author": {
+      "kind": "host_authored",
+      "validation": "explicit_artifact_contract",
+      "requires_modules": [],
+      "scientific_validation": "NOT_ASSESSED"
+    }
+  },
+  "resource_class": "standard",
+  "supports_retry": false,
+  "effects": {
+    "task_directory_write": false,
+    "external_read": false,
+    "external_side_effect": false
+  },
+  "evidence_boundary": "Formal execution evidence is limited to the declared contract, validated artifacts, provenance, and scientific review boundaries.",
+  "migration_validation": "STRUCTURAL_ONLY",
+  "completion_rule": "Execution status, requested artifact validation, and scientific interpretation are distinct."
+}

@@ -1,0 +1,29 @@
+schema_version: enzyme-agent/scientific-contract/v2
+skill_id: rational-expression-evolution
+version: 1.0.0
+category: evolution
+capability_ids:
+- science.general_operation
+execution_profile_path: execution_profile.json
+preconditions: []
+inputs: []
+outputs:
+- role: scientific_result
+  media_types:
+  - application/vnd.enzyme-agent.scientific-result+json
+state_effect: none
+evidence:
+  status: reviewed
+resources: []
+side_effects: []
+dependencies: []
+scientific_result:
+  schema_version: enzyme-agent/scientific-result/v1
+  adapter: physicochemical.rational-expression-evolution
+  numeric: false
+  required_observables:
+  - expression
+  - aggregation
+  - interface
+  required_qc: []
+  claim_ceiling: qualitative expression/evolution diagnosis only
