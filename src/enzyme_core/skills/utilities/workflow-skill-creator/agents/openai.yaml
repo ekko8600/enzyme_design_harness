@@ -1,0 +1,4 @@
+interface:
+  display_name: "Workflow Skill Creator"
+  short_description: "Help with Workflow Skill Creator tasks"
+  default_prompt: "Use $workflow-skill-creator to help with this task using its documented guidance and governed capabilities."

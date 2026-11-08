@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mut Model Supervised Finetuning"
+  short_description: "Pretrain, then choose SFT, DPO, or both"
+  default_prompt: "Use $mut-model-supervised-finetuning to complete pseudo-label pretraining, let me choose full-data SFT, DPO, or both, save each production weight, and score a large mutation library."

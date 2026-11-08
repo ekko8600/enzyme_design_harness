@@ -1,0 +1,4 @@
+interface:
+  display_name: "Uv"
+  short_description: "Help with Uv tasks and workflows"
+  default_prompt: "Use $uv to help with this task using its documented guidance and governed capabilities."

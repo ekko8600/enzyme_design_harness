@@ -1,0 +1,18 @@
+schema_version: enzyme-agent/scientific-contract/v2
+skill_id: mut-model-supervised-finetuning
+version: 1.0.0
+category: supervised-finetuning-models
+capability_ids:
+- model.supervised_finetuning
+execution_profile_path: execution_profile.json
+preconditions: []
+inputs: []
+outputs: []
+state_effect: none
+evidence:
+  status: reviewed
+resources:
+- high
+side_effects:
+- task_directory_write
+dependencies: []

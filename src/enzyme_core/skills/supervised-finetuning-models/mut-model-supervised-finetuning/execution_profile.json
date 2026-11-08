@@ -1,0 +1,55 @@
+{
+  "schema_version": "enzyme-core/skill-execution-profile/v1",
+  "skill": "mut-model-supervised-finetuning",
+  "default_operation": "mut_model_tools",
+  "operations": {
+    "finetune_dpo_full": {
+      "kind": "local_python",
+      "path": "scripts/finetune_dpo_full.py",
+      "requires_modules": [
+        "flax",
+        "grain",
+        "jax",
+        "numpy",
+        "pandas"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "finetune_full": {
+      "kind": "local_python",
+      "path": "scripts/finetune_full.py",
+      "requires_modules": [
+        "flax",
+        "grain",
+        "jax",
+        "numpy",
+        "optax",
+        "pandas"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "mut_model_tools": {
+      "kind": "local_python",
+      "path": "scripts/mut_model_tools.py",
+      "requires_modules": [
+        "flax",
+        "jax",
+        "numpy"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    }
+  },
+  "resource_class": "high",
+  "supports_retry": false,
+  "effects": {
+    "task_directory_write": true,
+    "external_read": false,
+    "external_side_effect": false
+  },
+  "evidence_boundary": "Model metrics require leakage-safe splits, explicit metric definitions, seeds, and uncertainty; predictions are not experimental validation.",
+  "migration_validation": "STRUCTURAL_ONLY",
+  "completion_rule": "Execution status, requested artifact validation, and scientific interpretation are distinct."
+}

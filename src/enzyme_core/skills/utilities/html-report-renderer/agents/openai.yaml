@@ -1,0 +1,4 @@
+interface:
+  display_name: "Html Report Renderer"
+  short_description: "Help with Html Report Renderer tasks"
+  default_prompt: "Use $html-report-renderer to help with this task using its documented guidance and governed capabilities."

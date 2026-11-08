@@ -1,0 +1,24 @@
+{
+  "schema_version": "enzyme-core/skill-execution-profile/v1",
+  "skill": "repair-validation",
+  "default_operation": "normalize_table",
+  "operations": {
+    "normalize_table": {
+      "kind": "local_python",
+      "path": "scripts/normalize.py",
+      "requires_modules": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_APPLICABLE",
+      "runtime_contract": {
+        "schema_version": "enzyme-core/runtime-contract/v1",
+        "status": "DECLARED_NOT_RUNTIME_VALIDATED",
+        "repair_validation_recipe": "fixed-golden-v1"
+      }
+    }
+  },
+  "effects": {
+    "writes_task_directory": true,
+    "reads_external_resources": false
+  },
+  "evidence_boundary": "Engineering fixture; no scientific conclusions."
+}

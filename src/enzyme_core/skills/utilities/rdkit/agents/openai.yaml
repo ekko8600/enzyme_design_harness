@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rdkit"
+  short_description: "Help with Rdkit tasks and workflows"
+  default_prompt: "Use $rdkit to help with this task using its documented guidance and governed capabilities."

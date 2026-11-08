@@ -1,0 +1,52 @@
+{
+  "schema_version": "enzyme-design-platform/stable-skill-evidence/v1",
+  "skill": "markitdown",
+  "verified_at": "2026-08-12",
+  "reviewed_by": "ekko",
+  "skill_payload_sha256": "8bcd24e3c03c1a492921b1266fa232ef2ed43b42778d594d7e25f82576bd638b",
+  "validator_paths": [
+    "scripts/validate_stability.py"
+  ],
+  "positive_fixture_paths": [
+    "fixtures/stability/valid.json"
+  ],
+  "negative_fixture_paths": [
+    "fixtures/stability/invalid.json"
+  ],
+  "test_command": [
+    "python3",
+    "{project_root}/scripts/run_skill_smoke.py",
+    "--skill",
+    "markitdown"
+  ],
+  "test_timeout_seconds": 3600,
+  "assertions": [
+    "negative_fixture_rejected",
+    "positive_fixture_accepted",
+    "repeatability_checked",
+    "required_outputs_semantically_checked"
+  ],
+  "scientific_boundary": "This checks a deterministic local CLI contract and failure handling; it does not establish model accuracy, scientific validity, or production-scale execution.",
+  "known_limits": [
+    "The smoke test does not establish upstream service availability or experimental validity.",
+    "MarkItDown conversion is not exercised until the optional markitdown package is installed by the maintainer; missing-dependency diagnostics are exercised."
+  ],
+  "tested_scope": {
+    "level": "local-smoke",
+    "covered": [
+      "entrypoint load",
+      "help or shell syntax contract",
+      "invalid invocation rejection",
+      "repeatable local output"
+    ],
+    "excluded": [
+      "full scientific workload",
+      "external service availability"
+    ]
+  },
+  "duration_policy": {
+    "mode": "observe-only",
+    "observed_seconds": 2.178723,
+    "termination_reason": "completed"
+  }
+}

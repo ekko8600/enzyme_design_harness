@@ -1,0 +1,10 @@
+schema_version: enzyme-agent/scientific-contract/v2
+skill_id: repair-validation
+version: 1.0.0
+category: testing
+capability_ids: []
+preconditions: []
+inputs: []
+outputs: []
+state_effect: none
+purpose: Engineering-only fixture; copying table values is not scientific evidence.

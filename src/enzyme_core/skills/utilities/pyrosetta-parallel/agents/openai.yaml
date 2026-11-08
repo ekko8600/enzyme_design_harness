@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pyrosetta Parallel"
+  short_description: "Help with Pyrosetta Parallel tasks"
+  default_prompt: "Use $pyrosetta-parallel to help with this task using its documented guidance and governed capabilities."

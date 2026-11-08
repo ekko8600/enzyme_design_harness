@@ -1,0 +1,4 @@
+interface:
+  display_name: "VenusFSFP Supervised Finetuning"
+  short_description: "Pretrain, fit all assay rows, and save weights"
+  default_prompt: "Use $venusfsfp-supervised-finetuning to complete pseudo-label meta-pretraining, meta-transfer on all experimental rows without a train/test split, save the production checkpoint, and rank a large mutation library."

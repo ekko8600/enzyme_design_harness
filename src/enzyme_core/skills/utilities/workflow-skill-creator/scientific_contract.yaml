@@ -1,0 +1,16 @@
+schema_version: enzyme-agent/scientific-contract/v2
+skill_id: workflow-skill-creator
+version: 1.0.0
+category: utilities
+capability_ids:
+- utility.data_processing
+execution_profile_path: execution_profile.json
+preconditions: []
+inputs: []
+outputs: []
+state_effect: none
+evidence:
+  status: reviewed
+resources: []
+side_effects: []
+dependencies: []
