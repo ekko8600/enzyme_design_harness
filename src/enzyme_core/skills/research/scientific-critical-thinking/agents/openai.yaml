@@ -1,0 +1,4 @@
+interface:
+  display_name: "Scientific Critical Thinking"
+  short_description: "Help with Scientific Critical Thinking tasks"
+  default_prompt: "Use $scientific-critical-thinking to help with this task using its documented guidance and governed capabilities."

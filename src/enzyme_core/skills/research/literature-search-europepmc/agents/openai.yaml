@@ -1,0 +1,4 @@
+interface:
+  display_name: "Literature Search Europepmc"
+  short_description: "Help with Literature Search Europepmc tasks"
+  default_prompt: "Use $literature-search-europepmc to help with this task using its documented guidance and governed capabilities."

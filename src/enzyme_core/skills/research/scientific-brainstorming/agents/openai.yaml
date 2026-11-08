@@ -1,0 +1,4 @@
+interface:
+  display_name: "Scientific Brainstorming"
+  short_description: "Help with Scientific Brainstorming tasks"
+  default_prompt: "Use $scientific-brainstorming to help with this task using its documented guidance and governed capabilities."

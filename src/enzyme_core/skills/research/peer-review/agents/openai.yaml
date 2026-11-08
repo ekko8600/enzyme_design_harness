@@ -1,0 +1,4 @@
+interface:
+  display_name: "Peer Review"
+  short_description: "Help with Peer Review tasks"
+  default_prompt: "Use $peer-review to help with this task using its documented guidance and governed capabilities."

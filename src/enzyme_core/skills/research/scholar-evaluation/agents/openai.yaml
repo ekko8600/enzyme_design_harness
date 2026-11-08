@@ -1,0 +1,4 @@
+interface:
+  display_name: "Scholar Evaluation"
+  short_description: "Help with Scholar Evaluation tasks"
+  default_prompt: "Use $scholar-evaluation to help with this task using its documented guidance and governed capabilities."
