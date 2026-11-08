@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ucsc Conservation and Tfbs"
+  short_description: "Help with Ucsc Conservation and Tfbs tasks"
+  default_prompt: "Use $ucsc-conservation-and-tfbs to help with this task using its documented guidance and governed capabilities."

@@ -1,0 +1,45 @@
+{
+  "schema_version": "enzyme-core/skill-execution-profile/v1",
+  "skill": "pdb-database",
+  "default_operation": "search_pdb",
+  "operations": {
+    "download_coordinate_files": {
+      "kind": "local_python",
+      "path": "scripts/download_coordinate_files.py",
+      "requires_modules": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "fetch_pdb_metadata": {
+      "kind": "local_python",
+      "path": "scripts/fetch_pdb_metadata.py",
+      "requires_modules": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "fetch_schema": {
+      "kind": "local_python",
+      "path": "scripts/fetch_schema.py",
+      "requires_modules": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "search_pdb": {
+      "kind": "local_python",
+      "path": "scripts/search_pdb.py",
+      "requires_modules": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    }
+  },
+  "resource_class": "standard",
+  "supports_retry": false,
+  "effects": {
+    "task_directory_write": true,
+    "external_read": true,
+    "external_side_effect": false
+  },
+  "evidence_boundary": "RCSB records support database-derived structure metadata and identifiers only; they do not establish catalytic activity, binding affinity, or experimental validity.",
+  "migration_validation": "STRUCTURAL_ONLY",
+  "completion_rule": "Execution status, requested artifact validation, and scientific interpretation are distinct."
+}

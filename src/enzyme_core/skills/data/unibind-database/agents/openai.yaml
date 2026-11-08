@@ -1,0 +1,4 @@
+interface:
+  display_name: "Unibind Database"
+  short_description: "Help with Unibind Database tasks"
+  default_prompt: "Use $unibind-database to help with this task using its documented guidance and governed capabilities."

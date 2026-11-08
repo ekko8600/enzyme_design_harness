@@ -1,0 +1,4 @@
+interface:
+  display_name: "Uniprot"
+  short_description: "Help with Uniprot tasks and workflows"
+  default_prompt: "Use $uniprot to help with this task using its documented guidance and governed capabilities."

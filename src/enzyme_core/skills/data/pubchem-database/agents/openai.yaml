@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pubchem Database"
+  short_description: "Help with Pubchem Database tasks"
+  default_prompt: "Use $pubchem-database to help with this task using its documented guidance and governed capabilities."

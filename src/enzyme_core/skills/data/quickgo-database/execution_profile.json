@@ -1,0 +1,24 @@
+{
+  "schema_version": "enzyme-core/skill-execution-profile/v1",
+  "skill": "quickgo-database",
+  "default_operation": "quickgo_tool",
+  "operations": {
+    "quickgo_tool": {
+      "kind": "local_python",
+      "path": "scripts/quickgo_tool.py",
+      "requires_modules": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    }
+  },
+  "resource_class": "standard",
+  "supports_retry": false,
+  "effects": {
+    "task_directory_write": false,
+    "external_read": false,
+    "external_side_effect": false
+  },
+  "evidence_boundary": "Formal execution evidence is limited to the declared contract, validated artifacts, provenance, and scientific review boundaries.",
+  "migration_validation": "STRUCTURAL_ONLY",
+  "completion_rule": "Execution status, requested artifact validation, and scientific interpretation are distinct."
+}

@@ -1,0 +1,19 @@
+schema_version: enzyme-agent/scientific-contract/v2
+skill_id: public-data-inputs
+version: 1.0.0
+category: data
+capability_ids:
+- utility.data_processing
+execution_profile_path: execution_profile.json
+preconditions: []
+inputs: []
+outputs: []
+state_effect: none
+evidence:
+  status: not_validated
+resources:
+- light
+side_effects:
+- task_directory_write
+- external_read
+dependencies: []

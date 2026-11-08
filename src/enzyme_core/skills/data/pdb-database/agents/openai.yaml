@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pdb Database"
+  short_description: "Help with Pdb Database tasks"
+  default_prompt: "Use $pdb-database to help with this task using its documented guidance and governed capabilities."

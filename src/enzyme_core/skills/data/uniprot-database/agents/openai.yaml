@@ -1,0 +1,4 @@
+interface:
+  display_name: "Uniprot Database"
+  short_description: "Help with Uniprot Database tasks"
+  default_prompt: "Use $uniprot-database to help with this task using its documented guidance and governed capabilities."
