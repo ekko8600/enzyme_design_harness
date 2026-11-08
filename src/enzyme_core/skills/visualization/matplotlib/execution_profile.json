@@ -1,0 +1,59 @@
+{
+  "schema_version": "enzyme-core/skill-execution-profile/v1",
+  "skill": "matplotlib",
+  "default_operation": "plot_template",
+  "operations": {
+    "plot_template": {
+      "kind": "local_python",
+      "path": "scripts/plot_template.py",
+      "requires_modules": [
+        "matplotlib",
+        "numpy",
+        "scipy"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "style_configurator": {
+      "kind": "local_python",
+      "path": "scripts/style_configurator.py",
+      "requires_modules": [
+        "matplotlib",
+        "numpy"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "plot_from_table": {
+      "kind": "local_python",
+      "path": "scripts/plot_from_table.py",
+      "requires_modules": [
+        "matplotlib"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED",
+      "runtime_contract": {
+        "schema_version": "enzyme-core/runtime-contract/v1",
+        "status": "DECLARED_NOT_RUNTIME_VALIDATED",
+        "repair_validation_recipe": "fixed-golden-v1"
+      }
+    },
+    "plan_table_plot": {
+      "kind": "host_authored",
+      "validation": "explicit_artifact_contract",
+      "requires_modules": [],
+      "requires_resources": [],
+      "scientific_validation": "NOT_ASSESSED"
+    }
+  },
+  "resource_class": "light",
+  "supports_retry": false,
+  "effects": {
+    "task_directory_write": true,
+    "external_read": false,
+    "external_side_effect": false
+  },
+  "evidence_boundary": "A plotted example communicates supplied or synthetic data; it does not validate the underlying measurement or inference.",
+  "migration_validation": "STRUCTURAL_ONLY",
+  "completion_rule": "Execution status, requested artifact validation, and scientific interpretation are distinct."
+}

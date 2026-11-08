@@ -1,0 +1,4 @@
+interface:
+  display_name: "Molecule Visualization"
+  short_description: "Help with Molecule Visualization tasks"
+  default_prompt: "Use $molecule-visualization to help with this task using its documented guidance and governed capabilities."

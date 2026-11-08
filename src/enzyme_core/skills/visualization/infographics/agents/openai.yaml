@@ -1,0 +1,4 @@
+interface:
+  display_name: "Infographics"
+  short_description: "Help with Infographics tasks"
+  default_prompt: "Use $infographics to help with this task using its documented guidance and governed capabilities."

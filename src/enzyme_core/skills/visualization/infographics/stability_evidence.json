@@ -1,0 +1,51 @@
+{
+  "schema_version": "enzyme-design-platform/stable-skill-evidence/v1",
+  "skill": "infographics",
+  "verified_at": "2026-08-12",
+  "reviewed_by": "ekko",
+  "skill_payload_sha256": "8788b15ab53e1a89b74b40d612bf1e57bb04e532435a9dc115407e192d4fb215",
+  "validator_paths": [
+    "scripts/validate_stability.py"
+  ],
+  "positive_fixture_paths": [
+    "fixtures/stability/valid.json"
+  ],
+  "negative_fixture_paths": [
+    "fixtures/stability/invalid.json"
+  ],
+  "test_command": [
+    "python3",
+    "{project_root}/scripts/run_skill_smoke.py",
+    "--skill",
+    "infographics"
+  ],
+  "test_timeout_seconds": 3600,
+  "assertions": [
+    "negative_fixture_rejected",
+    "positive_fixture_accepted",
+    "repeatability_checked",
+    "required_outputs_semantically_checked"
+  ],
+  "scientific_boundary": "This checks a deterministic local CLI contract and failure handling; it does not establish model accuracy, scientific validity, or production-scale execution.",
+  "known_limits": [
+    "The smoke test does not establish upstream service availability or experimental validity."
+  ],
+  "tested_scope": {
+    "level": "local-smoke",
+    "covered": [
+      "entrypoint load",
+      "help or shell syntax contract",
+      "invalid invocation rejection",
+      "repeatable local output"
+    ],
+    "excluded": [
+      "full scientific workload",
+      "external service availability"
+    ]
+  },
+  "duration_policy": {
+    "mode": "observe-only",
+    "observed_seconds": 1.171972,
+    "termination_reason": "completed"
+  }
+}

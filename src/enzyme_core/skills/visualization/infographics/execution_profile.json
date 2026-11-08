@@ -1,0 +1,34 @@
+{
+  "schema_version": "enzyme-core/skill-execution-profile/v1",
+  "skill": "infographics",
+  "default_operation": "generate_infographic",
+  "operations": {
+    "generate_infographic": {
+      "kind": "local_python",
+      "path": "scripts/generate_infographic.py",
+      "requires_modules": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "generate_infographic_ai": {
+      "kind": "local_python",
+      "path": "scripts/generate_infographic_ai.py",
+      "requires_modules": [
+        "dotenv",
+        "requests"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    }
+  },
+  "resource_class": "standard",
+  "supports_retry": false,
+  "effects": {
+    "task_directory_write": true,
+    "external_read": true,
+    "external_side_effect": true
+  },
+  "evidence_boundary": "Generated infographics visualize supplied or retrieved content; they do not validate facts, statistics, scientific claims, or publication suitability.",
+  "migration_validation": "STRUCTURAL_ONLY",
+  "completion_rule": "Execution status, requested artifact validation, and scientific interpretation are distinct."
+}

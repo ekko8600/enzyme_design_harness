@@ -1,0 +1,4 @@
+interface:
+  display_name: "Plotly"
+  short_description: "Help with Plotly tasks and workflows"
+  default_prompt: "Use $plotly to help with this task using its documented guidance and governed capabilities."

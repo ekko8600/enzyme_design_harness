@@ -1,0 +1,4 @@
+interface:
+  display_name: "Matplotlib"
+  short_description: "Help with Matplotlib tasks"
+  default_prompt: "Use $matplotlib to help with this task using its documented guidance and governed capabilities."

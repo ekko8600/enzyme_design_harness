@@ -1,0 +1,74 @@
+{
+  "schema_version": "enzyme-core/skill-execution-profile/v1",
+  "skill": "molecule-visualization",
+  "default_operation": "draw_2d",
+  "operations": {
+    "draw_2d": {
+      "kind": "local_python",
+      "path": "scripts/draw_2d.py",
+      "requires_modules": [
+        "PIL",
+        "rdkit"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "draw_grid": {
+      "kind": "local_python",
+      "path": "scripts/draw_grid.py",
+      "requires_modules": [
+        "PIL",
+        "rdkit"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED",
+      "runtime_contract": {
+        "schema_version": "enzyme-core/runtime-contract/v1",
+        "status": "DECLARED_NOT_RUNTIME_VALIDATED",
+        "repair_validation_recipe": "fixed-golden-v1"
+      }
+    },
+    "draw_interactions": {
+      "kind": "local_python",
+      "path": "scripts/draw_interactions.py",
+      "requires_modules": [
+        "Bio",
+        "PIL",
+        "matplotlib",
+        "numpy",
+        "rdkit"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "draw_scaffold": {
+      "kind": "local_python",
+      "path": "scripts/draw_scaffold.py",
+      "requires_modules": [
+        "PIL",
+        "rdkit"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "render_3d": {
+      "kind": "local_python",
+      "path": "scripts/render_3d.py",
+      "requires_modules": [
+        "rdkit"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    }
+  },
+  "resource_class": "light",
+  "supports_retry": false,
+  "effects": {
+    "task_directory_write": true,
+    "external_read": false,
+    "external_side_effect": false
+  },
+  "evidence_boundary": "A 2D molecular depiction verifies only the parsed structure representation, not identity, purity, binding, or activity.",
+  "migration_validation": "STRUCTURAL_ONLY",
+  "completion_rule": "Execution status, requested artifact validation, and scientific interpretation are distinct."
+}

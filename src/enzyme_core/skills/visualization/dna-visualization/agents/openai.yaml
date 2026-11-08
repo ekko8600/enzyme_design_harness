@@ -1,0 +1,4 @@
+interface:
+  display_name: "Dna Visualization"
+  short_description: "Help with Dna Visualization tasks"
+  default_prompt: "Use $dna-visualization to help with this task using its documented guidance and governed capabilities."

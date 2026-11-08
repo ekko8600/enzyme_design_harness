@@ -1,0 +1,18 @@
+schema_version: enzyme-agent/scientific-contract/v2
+skill_id: molecule-visualization
+version: 1.0.0
+category: visualization
+capability_ids:
+- reporting.scientific_visualization
+execution_profile_path: execution_profile.json
+preconditions: []
+inputs: []
+outputs: []
+state_effect: none
+evidence:
+  status: reviewed
+resources:
+- light
+side_effects:
+- task_directory_write
+dependencies: []
