@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hmdb Database"
+  short_description: "Help with Hmdb Database tasks"
+  default_prompt: "Use $hmdb-database to help with this task using its documented guidance and governed capabilities."

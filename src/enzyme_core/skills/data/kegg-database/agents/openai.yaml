@@ -1,0 +1,4 @@
+interface:
+  display_name: "Kegg Database"
+  short_description: "Help with Kegg Database tasks"
+  default_prompt: "Use $kegg-database to help with this task using its documented guidance and governed capabilities."

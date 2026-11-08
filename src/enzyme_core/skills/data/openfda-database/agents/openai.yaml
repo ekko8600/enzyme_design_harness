@@ -1,0 +1,4 @@
+interface:
+  display_name: "Openfda Database"
+  short_description: "Help with Openfda Database tasks"
+  default_prompt: "Use $openfda-database to help with this task using its documented guidance and governed capabilities."

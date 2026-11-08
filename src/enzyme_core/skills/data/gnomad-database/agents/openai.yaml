@@ -1,0 +1,4 @@
+interface:
+  display_name: "Gnomad Database"
+  short_description: "Help with Gnomad Database tasks"
+  default_prompt: "Use $gnomad-database to help with this task using its documented guidance and governed capabilities."

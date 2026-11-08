@@ -1,0 +1,4 @@
+interface:
+  display_name: "Gtex Database"
+  short_description: "Help with Gtex Database tasks"
+  default_prompt: "Use $gtex-database to help with this task using its documented guidance and governed capabilities."

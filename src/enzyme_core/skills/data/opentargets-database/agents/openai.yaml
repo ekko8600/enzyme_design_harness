@@ -1,0 +1,4 @@
+interface:
+  display_name: "Opentargets Database"
+  short_description: "Help with Opentargets Database tasks"
+  default_prompt: "Use $opentargets-database to help with this task using its documented guidance and governed capabilities."

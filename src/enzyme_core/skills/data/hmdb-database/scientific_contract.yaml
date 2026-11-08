@@ -1,0 +1,18 @@
+schema_version: enzyme-agent/scientific-contract/v2
+skill_id: hmdb-database
+version: 1.0.0
+category: data
+capability_ids:
+- data.scientific_database.retrieval
+execution_profile_path: execution_profile.json
+preconditions: []
+inputs: []
+outputs: []
+state_effect: none
+evidence:
+  status: reviewed
+resources:
+- standard
+side_effects:
+- task_directory_write
+dependencies: []

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Jaspar Database"
+  short_description: "Help with Jaspar Database tasks"
+  default_prompt: "Use $jaspar-database to help with this task using its documented guidance and governed capabilities."

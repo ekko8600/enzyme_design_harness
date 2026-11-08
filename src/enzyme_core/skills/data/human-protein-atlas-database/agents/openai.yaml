@@ -1,0 +1,4 @@
+interface:
+  display_name: "Human Protein Atlas Database"
+  short_description: "Help with Human Protein Atlas Database tasks"
+  default_prompt: "Use $human-protein-atlas-database to help with this task using its documented guidance and governed capabilities."

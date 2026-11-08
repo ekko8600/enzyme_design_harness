@@ -1,0 +1,4 @@
+interface:
+  display_name: "Interpro Database"
+  short_description: "Help with Interpro Database tasks"
+  default_prompt: "Use $interpro-database to help with this task using its documented guidance and governed capabilities."
