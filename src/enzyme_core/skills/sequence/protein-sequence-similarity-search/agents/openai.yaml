@@ -1,0 +1,4 @@
+interface:
+  display_name: "Protein Sequence Similarity Search"
+  short_description: "Help with Protein Sequence Similarity Search tasks"
+  default_prompt: "Use $protein-sequence-similarity-search to help with this task using its documented guidance and governed capabilities."

@@ -1,0 +1,32 @@
+schema_version: enzyme-agent/scientific-contract/v2
+skill_id: pyrosetta-relax-refine
+version: 1.0.0
+category: structure
+capability_ids:
+- structure.analysis
+execution_profile_path: execution_profile.json
+preconditions: []
+inputs: []
+outputs:
+- role: scientific_result
+  media_types:
+  - application/vnd.enzyme-agent.scientific-result+json
+state_effect: none
+evidence:
+  status: reviewed
+resources: []
+side_effects: []
+dependencies:
+- pyrosetta-setup
+scientific_result:
+  schema_version: enzyme-agent/scientific-result/v1
+  adapter: physicochemical.pyrosetta-relax-refine
+  numeric: true
+  required_observables:
+  - energy
+  - packing
+  - strain
+  - geometry
+  required_qc:
+  - controls_present
+  claim_ceiling: comparative relaxed-structure proxy; not thermodynamic stability

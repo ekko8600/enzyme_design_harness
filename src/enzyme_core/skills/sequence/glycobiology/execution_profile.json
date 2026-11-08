@@ -1,0 +1,24 @@
+{
+  "schema_version": "enzyme-core/skill-execution-profile/v1",
+  "skill": "glycobiology",
+  "default_operation": "predict_glycosylation",
+  "operations": {
+    "predict_glycosylation": {
+      "kind": "local_python",
+      "path": "scripts/predict_glycosylation.py",
+      "requires_modules": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    }
+  },
+  "resource_class": "light",
+  "supports_retry": false,
+  "effects": {
+    "task_directory_write": true,
+    "external_read": false,
+    "external_side_effect": false
+  },
+  "evidence_boundary": "Sequon and Ser/Thr-density results are hypotheses only; they do not establish occupancy, glycoform, accessibility, or phenotype.",
+  "migration_validation": "STRUCTURAL_ONLY",
+  "completion_rule": "Execution status, requested artifact validation, and scientific interpretation are distinct."
+}

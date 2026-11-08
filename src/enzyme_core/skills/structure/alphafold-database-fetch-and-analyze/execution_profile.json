@@ -1,0 +1,40 @@
+{
+  "schema_version": "enzyme-core/skill-execution-profile/v1",
+  "skill": "alphafold-database-fetch-and-analyze",
+  "default_operation": "fetch_structure",
+  "operations": {
+    "analyze_pae": {
+      "kind": "local_python",
+      "path": "scripts/analyze_pae.py",
+      "requires_modules": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "analyze_plddt": {
+      "kind": "local_python",
+      "path": "scripts/analyze_plddt.py",
+      "requires_modules": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "fetch_structure": {
+      "kind": "local_python",
+      "path": "scripts/fetch_structure.py",
+      "requires_modules": [
+        "dotenv"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    }
+  },
+  "resource_class": "standard",
+  "supports_retry": false,
+  "effects": {
+    "task_directory_write": true,
+    "external_read": true,
+    "external_side_effect": false
+  },
+  "evidence_boundary": "Formal execution evidence is limited to the declared contract, validated artifacts, provenance, and scientific review boundaries.",
+  "migration_validation": "STRUCTURAL_ONLY",
+  "completion_rule": "Execution status, requested artifact validation, and scientific interpretation are distinct."
+}

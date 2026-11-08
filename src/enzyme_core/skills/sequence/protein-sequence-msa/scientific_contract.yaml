@@ -1,0 +1,19 @@
+schema_version: enzyme-agent/scientific-contract/v2
+skill_id: protein-sequence-msa
+version: 1.0.0
+category: sequence
+capability_ids:
+- sequence.analysis
+execution_profile_path: execution_profile.json
+preconditions: []
+inputs: []
+outputs: []
+state_effect: none
+evidence:
+  status: reviewed
+resources:
+- long
+side_effects:
+- task_directory_write
+- external_read
+dependencies: []

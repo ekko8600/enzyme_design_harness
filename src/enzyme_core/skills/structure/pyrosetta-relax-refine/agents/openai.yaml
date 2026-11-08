@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pyrosetta Relax Refine"
+  short_description: "Help with Pyrosetta Relax Refine tasks"
+  default_prompt: "Use $pyrosetta-relax-refine to help with this task using its documented guidance and governed capabilities."

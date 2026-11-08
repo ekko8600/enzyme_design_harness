@@ -1,0 +1,4 @@
+interface:
+  display_name: "Foldseek Structural Search"
+  short_description: "Help with Foldseek Structural Search tasks"
+  default_prompt: "Use $foldseek-structural-search to help with this task using its documented guidance and governed capabilities."

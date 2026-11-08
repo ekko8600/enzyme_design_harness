@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pyrosetta Pose"
+  short_description: "Help with Pyrosetta Pose tasks"
+  default_prompt: "Use $pyrosetta-pose to help with this task using its documented guidance and governed capabilities."

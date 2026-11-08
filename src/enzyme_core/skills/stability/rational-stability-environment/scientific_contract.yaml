@@ -1,0 +1,30 @@
+schema_version: enzyme-agent/scientific-contract/v2
+skill_id: rational-stability-environment
+version: 1.0.0
+category: stability
+capability_ids:
+- science.general_operation
+execution_profile_path: execution_profile.json
+preconditions: []
+inputs: []
+outputs:
+- role: scientific_result
+  media_types:
+  - application/vnd.enzyme-agent.scientific-result+json
+state_effect: none
+evidence:
+  status: reviewed
+resources: []
+side_effects: []
+dependencies: []
+scientific_result:
+  schema_version: enzyme-agent/scientific-result/v1
+  adapter: physicochemical.rational-stability-environment
+  numeric: false
+  required_observables:
+  - stability
+  - thermo
+  - hydration
+  - surface
+  required_qc: []
+  claim_ceiling: qualitative environment diagnosis only

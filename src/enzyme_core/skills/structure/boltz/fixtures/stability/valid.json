@@ -1,0 +1,8 @@
+{
+  "case": "entrypoint-help-contract",
+  "scope": "local-smoke",
+  "semantic_tokens": [
+    "usage"
+  ],
+  "description": "Small local entrypoint contract probe; it does not run production scientific work."
+}

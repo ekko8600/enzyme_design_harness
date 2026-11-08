@@ -1,0 +1,4 @@
+interface:
+  display_name: "Protein Sequence Msa"
+  short_description: "Help with Protein Sequence Msa tasks"
+  default_prompt: "Use $protein-sequence-msa to help with this task using its documented guidance and governed capabilities."

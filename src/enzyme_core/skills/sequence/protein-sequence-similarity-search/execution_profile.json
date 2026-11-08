@@ -1,0 +1,33 @@
+{
+  "schema_version": "enzyme-core/skill-execution-profile/v1",
+  "skill": "protein-sequence-similarity-search",
+  "default_operation": "mmseqs2_search",
+  "operations": {
+    "mmseqs2_search": {
+      "kind": "local_python",
+      "path": "scripts/mmseqs2_search.py",
+      "requires_modules": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "uniprot_blast": {
+      "kind": "local_python",
+      "path": "scripts/uniprot_blast.py",
+      "requires_modules": [
+        "dotenv"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    }
+  },
+  "resource_class": "long",
+  "supports_retry": false,
+  "effects": {
+    "task_directory_write": true,
+    "external_read": true,
+    "external_side_effect": false
+  },
+  "evidence_boundary": "Sequence similarity identifies homolog candidates but does not independently prove biochemical function, substrate specificity, or activity.",
+  "migration_validation": "STRUCTURAL_ONLY",
+  "completion_rule": "Execution status, requested artifact validation, and scientific interpretation are distinct."
+}

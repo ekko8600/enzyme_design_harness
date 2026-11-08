@@ -1,0 +1,17 @@
+schema_version: enzyme-agent/scientific-contract/v2
+skill_id: pyrosetta-loops
+version: 1.0.0
+category: structure
+capability_ids:
+- structure.analysis
+execution_profile_path: execution_profile.json
+preconditions: []
+inputs: []
+outputs: []
+state_effect: none
+evidence:
+  status: reviewed
+resources: []
+side_effects: []
+dependencies:
+- pyrosetta-setup

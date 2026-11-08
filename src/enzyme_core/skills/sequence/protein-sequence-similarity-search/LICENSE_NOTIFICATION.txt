@@ -1,0 +1,1 @@
+NOTICE: Before using the EBI BLAST service or ColabFold/MMseqs2 databases, check their applicable terms: https://www.ebi.ac.uk/jdispatcher/sss/ncbiblast and https://colabfold.com. This run uses the ColabFold MMseqs2 API. Timestamp (UTC): 2026-11-03T22:34:51.266115+00:00

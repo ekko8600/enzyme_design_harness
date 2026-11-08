@@ -1,0 +1,74 @@
+{
+  "schema_version": "enzyme-core/skill-execution-profile/v1",
+  "skill": "alphafold",
+  "default_operation": "local_colabfold",
+  "operations": {
+    "local_alphafold": {
+      "kind": "local_python",
+      "path": "scripts/local_alphafold.py",
+      "requires_modules": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    },
+    "local_colabfold": {
+      "kind": "local_python",
+      "path": "scripts/local_colabfold.py",
+      "requires_modules": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED",
+      "requires_resources": [
+        "alphafold2"
+      ],
+      "runtime_contract": {
+        "schema_version": "enzyme-core/runtime-contract/v1",
+        "status": "DECLARED_NOT_RUNTIME_VALIDATED",
+        "gpu_control": [
+          "--require-gpu",
+          null
+        ]
+      }
+    },
+    "select_structure": {
+      "kind": "local_python",
+      "path": "scripts/select_structure.py",
+      "requires_modules": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED",
+      "requires_resources": []
+    },
+    "offline_colabfold": {
+      "kind": "local_python",
+      "path": "scripts/local_colabfold.py",
+      "requires_modules": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED",
+      "requires_resources": [],
+      "runtime_contract": {
+        "schema_version": "enzyme-core/runtime-contract/v1",
+        "status": "DECLARED_NOT_RUNTIME_VALIDATED",
+        "gpu_control": [
+          "--require-gpu",
+          null
+        ]
+      }
+    },
+    "validate_prediction": {
+      "kind": "local_python",
+      "path": "scripts/validate_prediction.py",
+      "requires_modules": [],
+      "requires_resources": [],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "SEQUENCE_AND_CONFIDENCE_INTEGRITY_ONLY"
+    }
+  },
+  "resource_class": "high",
+  "supports_retry": false,
+  "effects": {
+    "task_directory_write": true,
+    "external_read": false,
+    "external_side_effect": false
+  },
+  "evidence_boundary": "AlphaFold confidence and predicted geometry are computational evidence, not proof of folding, binding, or catalytic activity.",
+  "migration_validation": "STRUCTURAL_ONLY",
+  "completion_rule": "Execution status, requested artifact validation, and scientific interpretation are distinct."
+}

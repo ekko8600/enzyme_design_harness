@@ -1,0 +1,4 @@
+interface:
+  display_name: "Glycobiology"
+  short_description: "Help with Glycobiology tasks"
+  default_prompt: "Use $glycobiology to help with this task using its documented guidance and governed capabilities."

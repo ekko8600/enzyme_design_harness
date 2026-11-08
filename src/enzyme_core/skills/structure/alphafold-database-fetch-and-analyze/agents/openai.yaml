@@ -1,0 +1,4 @@
+interface:
+  display_name: "Alphafold Database Fetch and Analyze"
+  short_description: "Help with Alphafold Database Fetch and Analyze tasks"
+  default_prompt: "Use $alphafold-database-fetch-and-analyze to help with this task using its documented guidance and governed capabilities."

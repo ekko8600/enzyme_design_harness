@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pyrosetta Loops"
+  short_description: "Help with Pyrosetta Loops tasks"
+  default_prompt: "Use $pyrosetta-loops to help with this task using its documented guidance and governed capabilities."

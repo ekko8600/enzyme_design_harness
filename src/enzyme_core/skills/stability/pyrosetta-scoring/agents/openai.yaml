@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pyrosetta Scoring"
+  short_description: "Help with Pyrosetta Scoring tasks"
+  default_prompt: "Use $pyrosetta-scoring to help with this task using its documented guidance and governed capabilities."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rational Stability Environment"
+  short_description: "Help with Rational Stability Environment tasks"
+  default_prompt: "Use $rational-stability-environment to help with this task using its documented guidance and governed capabilities."

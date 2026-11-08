@@ -1,0 +1,4 @@
+interface:
+  display_name: "Alphafold"
+  short_description: "Help with Alphafold tasks"
+  default_prompt: "Use $alphafold to help with this task using its documented guidance and governed capabilities."

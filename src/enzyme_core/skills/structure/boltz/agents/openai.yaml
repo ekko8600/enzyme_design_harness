@@ -1,0 +1,4 @@
+interface:
+  display_name: "Boltz"
+  short_description: "Help with Boltz tasks and workflows"
+  default_prompt: "Use $boltz to help with this task using its documented guidance and governed capabilities."

@@ -1,0 +1,26 @@
+{
+  "schema_version": "enzyme-core/skill-execution-profile/v1",
+  "skill": "ncbi-sequence-fetch",
+  "default_operation": "ncbi_fetch",
+  "operations": {
+    "ncbi_fetch": {
+      "kind": "local_python",
+      "path": "scripts/ncbi_fetch.py",
+      "requires_modules": [
+        "dotenv"
+      ],
+      "validation": "explicit_artifact_contract",
+      "scientific_validation": "NOT_REVALIDATED"
+    }
+  },
+  "resource_class": "standard",
+  "supports_retry": false,
+  "effects": {
+    "task_directory_write": true,
+    "external_read": true,
+    "external_side_effect": false
+  },
+  "evidence_boundary": "NCBI records provide database sequence and annotation evidence with source-specific uncertainty; fetched annotations do not independently validate enzyme function.",
+  "migration_validation": "STRUCTURAL_ONLY",
+  "completion_rule": "Execution status, requested artifact validation, and scientific interpretation are distinct."
+}
